@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Events Near You | GICA</title>
+    <meta
+      name="description"
+      content="Browse and register for GICA creator conferences, workshops, masterclasses and networking events."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="ticket-page">
+    <header class="ticket-header">
+      <a class="brand brand-image" href="index.html">
+        <img src="images/GICA-logo.png" alt="GICA" />
+      </a>
+      <label class="ticket-search">
+        <span>⌕</span>
+        <input
+          id="event-search"
+          type="search"
+          placeholder="Search events, workshops and programs"
+        />
+      </label>
+      <button class="city-selector">Dubai⌄</button>
+      <a class="ticket-login" href="login.html">Creator Login</a>
+    </header>
+    <nav class="ticket-nav">
+      <div>
+        <a class="active" href="events.html">Events</a>
+        <a href="#recommended">Recommended</a>
+        <a href="#workshops">Workshops</a>
+        <a href="#online">Online</a>
+      </div>
+      <div>
+        <a href="members.html">Creators</a>
+        <a href="index.html">GICA Website</a>
+      </div>
+    </nav>
+    <main>
+      <section class="ticket-banner">
+        <img
+          class="ticket-banner-image"
+          src="images/event-creator-summit.webp"
+          alt="Creators and industry professionals networking at a global conference"
+        />
+        <div>
+          <span>GICA FLAGSHIP EVENT · DUBAI</span>
+          <h1>The creator economy’s<br />next big room.</h1>
+          <p>
+            Ideas, connections and opportunities—built for creators who mean
+            business.
+          </p>
+          <div>
+            <a class="ticket-primary" href="event-details.html"
+              >Explore the summit</a
+            >
+            <a class="ticket-ghost" href="event-details.html#event-register"
+              >Register now</a
+            >
+          </div>
+        </div>
+        <div class="banner-poster">
+          <small>18 OCT 2026</small>
+          <b>CREATOR<br />ECONOMY<br />SUMMIT</b>
+          <span>DUBAI · UAE</span>
+          <i>GICA</i>
+        </div>
+      </section>
+
+      <section class="ticket-content" id="recommended">
+        <div class="ticket-section-head">
+          <div>
+            <h2>Recommended events</h2>
+            <p>Popular experiences selected for the creator community</p>
+          </div>
+          <a href="#all-events">See all events →</a>
+        </div>
+        <div class="poster-grid">
+          <article
+            class="poster-event"
+            data-event-type="conference"
+            data-search="creator economy summit dubai conference"
+          >
+            <a class="event-poster-link" href="event-details.html">
+              <div class="poster-art poster-red">
+                <img
+                  src="images/event-creator-summit.webp"
+                  alt="GICA Creator Economy Summit networking"
+                />
+                <span class="poster-badge">PROMOTED</span>
+                <small>GICA PRESENTS</small>
+                <b>CREATOR<br />ECONOMY<br />SUMMIT</b>
+                <i>DUBAI · 2026</i>
+                <div class="poster-date">
+                  <strong>18</strong>
+                  <span>OCT</span>
+                </div>
+              </div>
+              <div class="poster-rating">
+                <span>★ 4.9</span>
+                <small>1.2K interested</small>
+              </div>
+            </a>
+            <div class="poster-info">
+              <h3>GICA Creator Economy Summit</h3>
+              <p>Dubai · Conference</p>
+              <small>Sun, 18 Oct · 9:00 AM</small>
+              <div>
+                <a href="event-details.html">View</a>
+                <a
+                  class="register-pill"
+                  href="event-details.html#event-register"
+                  >Register</a
+                >
+              </div>
+            </div>
+          </article>
+          <article
+            class="poster-event"
+            data-event-type="workshop"
+            data-search="brand ready media kit mumbai workshop"
+          >
+            <a
+              class="event-poster-link"
+              href="event-details.html?event=media-kit"
+            >
+              <div class="poster-art poster-black">
+                <img
+                  src="images/event-media-kit.webp"
+                  alt="Creators participating in a media kit workshop"
+                />
+                <span class="poster-badge">WORKSHOP</span>
+                <small>BUILD YOUR BRAND</small>
+                <b>MEDIA<br />KIT<br />LAB</b>
+                <i>MUMBAI</i>
+                <div class="poster-date">
+                  <strong>05</strong>
+                  <span>NOV</span>
+                </div>
+              </div>
+              <div class="poster-rating">
+                <span>★ 4.8</span>
+                <small>340 interested</small>
+              </div>
+            </a>
+            <div class="poster-info">
+              <h3>Build a Brand-Ready Media Kit</h3>
+              <p>Mumbai · Workshop</p>
+              <small>Thu, 5 Nov · 2:00 PM</small>
+              <div>
+                <a href="event-details.html?event=media-kit">View</a>
+                <a
+                  class="register-pill"
+                  href="event-details.html?event=media-kit#event-register"
+                  >Register</a
+                >
+              </div>
+            </div>
+          </article>
+          <article
+            class="poster-event"
+            data-event-type="online"
+            data-search="creator finance essentials online masterclass"
+          >
+            <a
+              class="event-poster-link"
+              href="event-details.html?event=finance"
+            >
+              <div class="poster-art poster-gold">
+                <img
+                  src="images/event-finance.webp"
+                  alt="Creator presenting an online finance masterclass"
+                />
+                <span class="poster-badge">ONLINE</span>
+                <small>CREATOR BUSINESS</small>
+                <b>FINANCE<br />ESSENTIALS</b>
+                <i>LIVE MASTERCLASS</i>
+                <div class="poster-date">
+                  <strong>22</strong>
+                  <span>NOV</span>
+                </div>
+              </div>
+              <div class="poster-rating">
+                <span>★ 4.7</span>
+                <small>580 interested</small>
+              </div>
+            </a>
+            <div class="poster-info">
+              <h3>Creator Finance Essentials</h3>
+              <p>Online · Masterclass</p>
+              <small>Sun, 22 Nov · 6:30 PM</small>
+              <div>
+                <a href="event-details.html?event=finance">View</a>
+                <a
+                  class="register-pill"
+                  href="event-details.html?event=finance#event-register"
+                  >Register</a
+                >
+              </div>
+            </div>
+          </article>
+          <article
+            class="poster-event"
+            data-event-type="networking"
+            data-search="creator connect kochi networking"
+          >
+            <a
+              class="event-poster-link"
+              href="event-details.html?event=connect"
+            >
+              <div class="poster-art poster-violet">
+                <img
+                  src="images/event-creator-connect.webp"
+                  alt="GICA creators networking at the Kochi Creator Connect event"
+                />
+                <span class="poster-badge">NETWORKING</span>
+                <small>GICA COMMUNITY</small>
+                <b>CREATOR<br />CONNECT</b>
+                <i>KOCHI EDITION</i>
+                <div class="poster-date">
+                  <strong>12</strong>
+                  <span>DEC</span>
+                </div>
+              </div>
+              <div class="poster-rating">
+                <span>★ 4.9</span>
+                <small>220 interested</small>
+              </div>
+            </a>
+            <div class="poster-info">
+              <h3>GICA Creator Connect — Kochi</h3>
+              <p>Kochi · Networking</p>
+              <small>Sat, 12 Dec · 4:00 PM</small>
+              <div>
+                <a href="event-details.html?event=connect">View</a>
+                <a
+                  class="register-pill"
+                  href="event-details.html?event=connect#event-register"
+                  >Register</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="ticket-content ticket-all-events" id="all-events">
+        <div class="ticket-section-head">
+          <div>
+            <h2>Explore all events</h2>
+            <p>Find the right event for your creator journey</p>
+          </div>
+        </div>
+        <div class="ticket-filter-row">
+          <button class="active" data-event-filter="all">All events</button>
+          <button data-event-filter="conference">Conferences</button>
+          <button data-event-filter="workshop">Workshops</button>
+          <button data-event-filter="online">Online</button>
+          <button data-event-filter="networking">Networking</button>
+        </div>
+        <div class="compact-events">
+          <a
+            href="event-details.html"
+            data-event-type="conference"
+            data-search="creator economy summit dubai conference"
+          >
+            <span class="compact-date"> <b>18</b>OCT</span>
+            <div>
+              <h3>GICA Creator Economy Summit 2026</h3>
+              <p>Dubai, UAE · Conference · 09:00 AM</p>
+            </div>
+            <i>From Free</i>
+            <strong>View & register →</strong>
+          </a>
+          <a
+            href="event-details.html?event=media-kit"
+            data-event-type="workshop"
+            data-search="brand ready media kit mumbai workshop"
+          >
+            <span class="compact-date"> <b>05</b>NOV</span>
+            <div>
+              <h3>Build a Brand-Ready Media Kit</h3>
+              <p>Mumbai, India · Workshop · 02:00 PM</p>
+            </div>
+            <i>₹499</i>
+            <strong>View & register →</strong>
+          </a>
+          <a
+            href="event-details.html?event=finance"
+            data-event-type="online"
+            data-search="creator finance essentials online masterclass"
+          >
+            <span class="compact-date"> <b>22</b>NOV</span>
+            <div>
+              <h3>Creator Finance Essentials</h3>
+              <p>Online · Masterclass · 06:30 PM</p>
+            </div>
+            <i>Free</i>
+            <strong>View & register →</strong>
+          </a>
+          <a
+            href="event-details.html?event=connect"
+            data-event-type="networking"
+            data-search="creator connect kochi networking"
+          >
+            <span class="compact-date"> <b>12</b>DEC</span>
+            <div>
+              <h3>GICA Creator Connect — Kochi</h3>
+              <p>Kochi, India · Networking · 04:00 PM</p>
+            </div>
+            <i>Members only</i>
+            <strong>View & register →</strong>
+          </a>
+        </div>
+        <p class="events-empty" hidden>No matching events found.</p>
+      </section>
+    </main>
+    <script src="api-client.js"></script>
+    <script src="event.js"></script>
+  </body>
+</html>

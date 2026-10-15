@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Creator Login | GICA</title>
+    <meta
+      name="description"
+      content="Sign in to the GICA Creator Panel to manage your professional profile, portfolio, inquiries, collaborations, finance and analytics."
+    />
+    <meta name="robots" content="noindex,follow" />
+    <meta name="theme-color" content="#3d3b3b" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-page">
+    <header class="auth-header">
+      <a class="brand brand-image" href="index.html"
+        ><img src="images/GICA-logo.png" alt="GICA" /></a
+      ><a class="auth-back" href="index.html">← Back to website</a>
+    </header>
+    <main class="auth-layout">
+      <section class="auth-story">
+        <p class="eyebrow"><span></span> GICA Creator Panel</p>
+        <h1>Welcome back to your <em>creator business.</em></h1>
+        <p>
+          Access your GICA identity, public profile, portfolio, inquiries,
+          collaborations, finance and performance—all from one secure creator
+          account.
+        </p>
+        <div class="auth-feature-grid">
+          <span>Professional profile</span><span>Portfolio &amp; media kit</span
+          ><span>Inquiries &amp; collaborations</span
+          ><span>Finance &amp; analytics</span>
+        </div>
+      </section>
+      <section class="auth-card" aria-labelledby="login-title">
+        <div class="auth-card-head">
+          <span>SECURE CREATOR ACCESS</span>
+          <h2 id="login-title">Sign in</h2>
+          <p>Use your registered email and password.</p>
+        </div>
+        <form class="auth-form" data-demo-form>
+          <label
+            >Email address<input
+              type="email"
+              name="email"
+              autocomplete="email"
+              required
+              placeholder="you@example.com"
+          /></label>
+          <label
+            >Password<span class="label-line"
+              ><i></i><a href="reset-password.html">Forgot password?</a></span
+            ><input
+              type="password"
+              name="password"
+              autocomplete="current-password"
+              minlength="8"
+              required
+              placeholder="Enter your password"
+          /></label>
+          <label class="remember"
+            ><input type="checkbox" name="remember" /><span
+              >Keep me signed in on this device</span
+            ></label
+          >
+          <button class="button primary auth-submit" type="submit">
+            Login to Creator Panel <span>↗</span>
+          </button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+        <div class="auth-switch">
+          New to GICA? <a href="register.html">Create creator account</a
+          ><br /><a class="staff-link" href="creator-dashboard.html"
+            >Preview Creator Panel</a
+          >
+          · <a class="staff-link" href="admin-login.html">Staff login</a>
+        </div>
+      </section>
+    </main>
+    <script src="api-client.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>

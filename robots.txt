@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Replace the domain below if GICA uses a different official domain.
+Sitemap: https://gica.global/sitemap.xml

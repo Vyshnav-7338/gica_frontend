@@ -1,0 +1,1605 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Creator Panel | GICA</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="network.css" />
+  </head>
+  <body class="panel-page">
+    <aside class="panel-sidebar">
+      <a class="panel-logo" href="index.html">
+        <img src="images/GICA-logo.png" alt="GICA" />
+      </a>
+      <p>CREATOR PANEL</p>
+      <nav>
+        <a class="active" href="#dashboard" data-panel="dashboard"
+          >⌂ <span>Dashboard</span>
+        </a>
+        <a href="#profile" data-panel="profile">◯ <span>My Profile</span> </a>
+        <a href="#portfolio" data-panel="portfolio"
+          >▦ <span>Portfolio</span>
+        </a>
+        <a href="#services" data-panel="services">◇ <span>Services</span> </a>
+        <a href="#inquiries" data-panel="inquiries"
+          >✉ <span>Inquiries</span>
+          <b>3</b>
+        </a>
+        <a href="#collaborations" data-panel="collaborations"
+          >↗ <span>Collaborations</span>
+        </a>
+        <a href="#opportunities" data-panel="opportunities"
+          >☆ <span>Opportunities</span>
+        </a>
+        <a href="#network" data-panel="network"
+          >◎ <span>Creator Network</span><b>5</b></a
+        >
+        <a href="#events" data-panel="events"
+          >◆ <span>Events</span><b id="registered-event-count">0</b></a
+        >
+        <a href="#finance" data-panel="finance">₹ <span>Finance</span> </a>
+        <a href="#analytics" data-panel="analytics"
+          >⌁ <span>Analytics</span>
+        </a>
+        <a href="#membership" data-panel="membership"
+          >✓ <span>Membership</span>
+        </a>
+        <a href="#settings" data-panel="settings">⚙ <span>Settings</span> </a>
+      </nav>
+      <a class="panel-logout" href="login.html">Log out</a>
+    </aside>
+    <main class="panel-main">
+      <header class="panel-top">
+        <button class="panel-menu" aria-label="Toggle menu">☰</button>
+        <div>
+          <small id="panel-eyebrow">CREATOR OVERVIEW</small>
+          <h1 id="panel-title">Welcome.</h1>
+        </div>
+        <div class="panel-actions">
+          <label class="panel-search">
+            <span>⌕</span>
+            <input type="search" placeholder="Search dashboard" />
+          </label>
+          <button class="notification-button" aria-label="Notifications">
+            ♢<i> </i>
+          </button>
+          <a href="member-profile.html" target="_blank">Public profile ↗</a>
+        </div>
+        <div class="panel-user">
+          <span
+            ><img id="panel-user-photo" src="images/creator-ananya.webp" alt="Creator profile" /><i> </i>
+          </span>
+          <div>
+            <b id="panel-user-name">Creator</b>
+            <small id="panel-user-id">—</small>
+          </div>
+        </div>
+      </header>
+      <div class="panel-body">
+        <section
+          class="panel-view active"
+          id="panel-dashboard"
+          data-title="Welcome."
+          data-eyebrow="CREATOR OVERVIEW"
+        >
+          <div class="creator-welcome">
+            <div class="welcome-photo">
+              <img
+                id="dashboard-user-photo"
+                src="images/creator-ananya.webp"
+                alt="Creator profile"
+              /><span id="dashboard-verification-badge">VERIFICATION PENDING</span>
+            </div>
+            <div class="welcome-copy">
+              <span id="dashboard-greeting">WELCOME</span>
+              <h2>Your creator business is moving forward.</h2>
+              <p>
+                You gained <strong>184 new profile views</strong> this week and
+                have <strong>three brand inquiries</strong> waiting for your
+                response.
+              </p>
+              <div class="welcome-actions">
+                <button class="panel-primary" data-open-panel="inquiries">
+                  Review inquiries</button
+                ><a href="member-profile.html" target="_blank"
+                  >Open public profile ↗</a
+                >
+              </div>
+            </div>
+            <div class="creator-score">
+              <small>PROFESSIONAL SCORE</small><strong>84</strong
+              ><span>Excellent</span>
+              <div><i style="width: 84%"></i></div>
+              <p>Top 18% in your category</p>
+            </div>
+          </div>
+          <div class="completion-card">
+            <div>
+              <span>PROFILE COMPLETION</span>
+              <h2>Your professional profile is 78% complete.</h2>
+              <p>
+                Add portfolio metrics and service pricing to improve your public
+                profile.
+              </p>
+            </div>
+            <div class="progress-ring">
+              <strong>78%</strong>
+            </div>
+            <a href="#profile" data-open-panel="profile">Complete profile →</a>
+          </div>
+          <div class="kpi-grid">
+            <article>
+              <span>PROFILE VIEWS</span>
+              <strong>2,480</strong>
+              <small>+12% this month</small>
+            </article>
+            <article>
+              <span>NEW INQUIRIES</span>
+              <strong>03</strong>
+              <small>2 require a response</small>
+            </article>
+            <article>
+              <span>ACTIVE COLLABS</span>
+              <strong>04</strong>
+              <small>1 deliverable due</small>
+            </article>
+            <article>
+              <span>PENDING PAYMENT</span>
+              <strong>₹42,000</strong>
+              <small>Across 2 invoices</small>
+            </article>
+          </div>
+          <div class="panel-columns">
+            <section class="panel-box">
+              <div class="box-head">
+                <div>
+                  <span>ACTION CENTER</span>
+                  <h2>What needs attention</h2>
+                </div>
+              </div>
+              <ul class="action-list">
+                <li>
+                  <b>01</b>
+                  <div>
+                    <strong>Respond to Acme campaign inquiry</strong>
+                    <small>Received 2 hours ago</small>
+                  </div>
+                  <span class="status urgent">NEW</span>
+                </li>
+                <li>
+                  <b>02</b>
+                  <div>
+                    <strong>Submit summer campaign content</strong>
+                    <small>Due tomorrow</small>
+                  </div>
+                  <span class="status">ACTIVE</span>
+                </li>
+                <li>
+                  <b>03</b>
+                  <div>
+                    <strong>Invoice GICA-INV-00082 is pending</strong>
+                    <small>₹25,000 · Due in 4 days</small>
+                  </div>
+                  <span class="status warning">PAYMENT</span>
+                </li>
+              </ul>
+            </section>
+            <section class="panel-box">
+              <div class="box-head">
+                <div>
+                  <span>PERFORMANCE</span>
+                  <h2>Profile activity</h2>
+                </div>
+                <small>7 days</small>
+              </div>
+              <div class="mini-chart">
+                <i style="height: 34%"> </i>
+                <i style="height: 58%"> </i>
+                <i style="height: 45%"> </i>
+                <i style="height: 77%"> </i>
+                <i style="height: 62%"> </i>
+                <i style="height: 88%"> </i>
+                <i style="height: 72%"> </i>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section
+          class="panel-view"
+          id="panel-profile"
+          data-title="My Profile"
+          data-eyebrow="IDENTITY & PUBLIC PRESENCE"
+        >
+          <div class="panel-page-head">
+            <div>
+              <span>GICA CREATOR ID</span>
+              <h2>
+                <span id="profile-creator-id">—</span>
+                <i id="profile-verification-status">Verification pending</i>
+              </h2>
+              <p>Your creator identity and account information.</p>
+            </div>
+            <div>
+              <button class="panel-primary" id="save-profile-btn" type="button">Save profile</button>
+              <p id="profile-save-status" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="panel-columns profile-editor">
+            <section class="panel-box">
+              <h3>Personal & professional profile</h3>
+              <div class="panel-form-grid">
+                <label>Display name<input id="profile-name" value="" placeholder="Not added" /></label>
+                <label>Username<input id="profile-username" value="" placeholder="Not added" /></label>
+                <label>Creator type<select id="profile-creator-type"><option value="">Not added</option><option value="Influencer">Influencer</option><option value="Content Creator">Content Creator</option><option value="Other">Other</option></select></label>
+                <label>Primary category<input id="profile-category" value="" placeholder="Not added" /></label>
+                <label>Country<input id="profile-country" value="" placeholder="Not added" /></label>
+                <label>Mobile number<input id="profile-mobile" value="" placeholder="Not added" /></label>
+                <label>Email address<input id="profile-email" value="" readonly /></label>
+                <label>Account status<input id="profile-status" value="" readonly /></label>
+                <label>City<input id="profile-city" value="" placeholder="Not added" /></label>
+                <label class="wide">Professional headline<input id="profile-headline" value="" placeholder="Not added" /></label>
+                <label class="wide">Bio<textarea id="profile-bio" rows="5" placeholder="Not added"></textarea></label>
+              </div>
+            </section>
+            <section class="panel-stack">
+              <div class="panel-box">
+                <h3>Account details</h3>
+                <div class="simple-transactions">
+                  <div><span><b>Creator ID</b><small>Permanent GICA creator ID</small></span><strong id="profile-info-creator-id">—</strong></div>
+                  <div><span><b>Role</b><small>Account role</small></span><strong id="profile-info-role">—</strong></div>
+                  <div><span><b>Email verification</b><small>Email verification status</small></span><strong id="profile-info-email-verified">—</strong></div>
+                  <div><span><b>Mobile verification</b><small>Mobile verification status</small></span><strong id="profile-info-mobile-verified">—</strong></div>
+                  <div><span><b>Created</b><small>Account creation date</small></span><strong id="profile-info-created">—</strong></div>
+                  <div><span><b>Last updated</b><small>Latest account update</small></span><strong id="profile-info-updated">—</strong></div>
+                </div>
+              </div>
+              <div class="panel-box">
+                <h3>Profile visibility</h3>
+                <label class="setting-row"><span><b>Public profile</b><small>Visible to everyone</small></span><input type="checkbox" checked /></label>
+                <label class="setting-row"><span><b>Show portfolio</b><small>Featured work on profile</small></span><input type="checkbox" checked /></label>
+                <label class="setting-row"><span><b>Accept inquiries</b><small>Public collaboration form</small></span><input type="checkbox" checked /></label>
+              </div>
+              <div class="panel-box">
+                <h3>Public link</h3>
+                <code id="profile-public-link">gica.global/@</code>
+                <button class="panel-secondary" id="copy-profile-link" type="button">Copy profile link</button>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section
+          class="panel-view"
+          id="panel-portfolio"
+          data-title="Portfolio & Media Kit"
+          data-eyebrow="SHOWCASE YOUR WORK"
+        >
+          <div class="panel-page-head">
+            <div>
+              <span>MY PORTFOLIO</span>
+              <h2>Featured creator work</h2>
+              <p>Add, edit, reorder, feature or hide professional work.</p>
+            </div>
+            <button class="panel-primary">+ Add portfolio item</button>
+          </div>
+          <div class="portfolio-manager">
+            <article>
+              <div class="work-thumb red">01</div>
+              <div>
+                <b>Summer Essentials</b>
+                <small>Brand collaboration · Instagram · Featured</small>
+              </div>
+              <span class="status">PUBLIC</span>
+              <button>•••</button>
+            </article>
+            <article>
+              <div class="work-thumb gold">02</div>
+              <div>
+                <b>Everyday Beauty</b>
+                <small>Product review · Reels</small>
+              </div>
+              <span class="status">PUBLIC</span>
+              <button>•••</button>
+            </article>
+            <article>
+              <div class="work-thumb dark">03</div>
+              <div>
+                <b>City Stories</b>
+                <small>Lifestyle editorial · Video</small>
+              </div>
+              <span class="status warning">DRAFT</span>
+              <button>•••</button>
+            </article>
+          </div>
+          <div class="media-kit-card">
+            <div>
+              <span>AUTOMATIC MEDIA KIT</span>
+              <h2>Professional media kit generated from your profile.</h2>
+              <p>
+                Includes GICA ID, verification, categories, social platforms,
+                work, services, QR code and profile link.
+              </p>
+            </div>
+            <div>
+              <button class="panel-primary">Preview</button>
+              <button class="panel-secondary">Download PDF</button>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="panel-view"
+          id="panel-services"
+          data-title="Creator Services"
+          data-eyebrow="SERVICES & PRICING"
+        >
+          <div class="panel-page-head">
+            <div>
+              <span>MY SERVICES</span>
+              <h2>Services visible on your profile</h2>
+              <p>Control pricing, delivery time and availability.</p>
+            </div>
+            <button class="panel-primary">+ Add service</button>
+          </div>
+          <div class="service-manager">
+            <article>
+              <span>INSTAGRAM</span>
+              <h3>Brand Promotion</h3>
+              <p>One feed post and two story frames.</p>
+              <div>
+                <b>From ₹25,000</b>
+                <small>7-day delivery</small>
+              </div>
+              <i>Available</i>
+            </article>
+            <article>
+              <span>CONTENT</span>
+              <h3>UGC Production</h3>
+              <p>Short-form product video for brand channels.</p>
+              <div>
+                <b>From ₹18,000</b>
+                <small>10-day delivery</small>
+              </div>
+              <i>Available</i>
+            </article>
+            <article>
+              <span>EVENTS</span>
+              <h3>Event Appearance</h3>
+              <p>Hosted appearance and social coverage.</p>
+              <div>
+                <b>Custom quote</b>
+                <small>On request</small>
+              </div>
+              <i>Limited</i>
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="panel-view"
+          id="panel-inquiries"
+          data-title="Inquiries"
+          data-eyebrow="LEAD & QUOTATION MANAGEMENT"
+        >
+          <div class="panel-page-head">
+            <div>
+              <span>PUBLIC INQUIRIES</span>
+              <h2>Manage brand and service leads</h2>
+              <p>
+                Track requests through discussion, quotation and conversion.
+              </p>
+            </div>
+            <button class="panel-secondary">Export</button>
+          </div>
+          <div class="filter-pills">
+            <button class="active">All 18</button>
+            <button>New 3</button>
+            <button>Discussion 4</button>
+            <button>Quotations 5</button>
+            <button>Converted 6</button>
+          </div>
+          <div class="data-list">
+            <div class="data-head">
+              <span>INQUIRY</span>
+              <span>BRAND</span>
+              <span>VALUE</span>
+              <span>STATUS</span>
+              <span> </span>
+            </div>
+            <article>
+              <span>
+                <b>INQ-GICA-000245</b>
+                <small>Summer social campaign</small>
+              </span>
+              <span>Acme Fashion</span>
+              <span>₹50,000</span>
+              <span class="status urgent">NEW</span>
+              <button>Open</button>
+            </article>
+            <article>
+              <span>
+                <b>INQ-GICA-000238</b>
+                <small>UGC product series</small>
+              </span>
+              <span>Glow Labs</span>
+              <span>₹35,000</span>
+              <span class="status warning">QUOTATION</span>
+              <button>Open</button>
+            </article>
+            <article>
+              <span>
+                <b>INQ-GICA-000221</b>
+                <small>Event appearance</small>
+              </span>
+              <span>City Style</span>
+              <span>₹75,000</span>
+              <span class="status">CONVERTED</span>
+              <button>Open</button>
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="panel-view"
+          id="panel-collaborations"
+          data-title="Collaborations"
+          data-eyebrow="CAMPAIGN WORKFLOW"
+        >
+          <div class="panel-page-head">
+            <div>
+              <span>ACTIVE WORK</span>
+              <h2>Collaborations and promotions</h2>
+              <p>
+                From negotiation through production, approval, publication and
+                payment.
+              </p>
+            </div>
+          </div>
+          <div class="collab-board">
+            <div>
+              <h3>NEGOTIATION <b>2</b></h3>
+              <article>
+                <span>COL-GICA-000182</span>
+                <h4>Glow Skin Launch</h4>
+                <p>Glow Labs · Reels + Stories</p>
+                <small>Proposed ₹35,000</small>
+              </article>
+            </div>
+            <div>
+              <h3>IN PRODUCTION <b>2</b></h3>
+              <article>
+                <span>COL-GICA-000176</span>
+                <h4>Summer Essentials</h4>
+                <p>Acme Fashion · Instagram</p>
+                <small>Due 03 September</small>
+              </article>
+            </div>
+            <div>
+              <h3>CLIENT APPROVAL <b>1</b></h3>
+              <article>
+                <span>COL-GICA-000168</span>
+                <h4>City Style Edit</h4>
+                <p>City Style · Video</p>
+                <small>Submitted yesterday</small>
+              </article>
+            </div>
+            <div>
+              <h3>PAYMENT <b>2</b></h3>
+              <article>
+                <span>COL-GICA-000154</span>
+                <h4>Everyday Beauty</h4>
+                <p>Beauty Co · Reels</p>
+                <small>₹25,000 pending</small>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="panel-view"
+          id="panel-opportunities"
+          data-title="Opportunities"
+          data-eyebrow="DISCOVER & APPLY"
+        >
+          <div class="panel-page-head">
+            <div>
+              <span>GICA OPPORTUNITIES</span>
+              <h2>Find your next opportunity</h2>
+              <p>Brand campaigns, events, programs and partnerships.</p>
+            </div>
+          </div>
+          <div class="opportunity-grid">
+            <article>
+              <span>BRAND CAMPAIGN</span>
+              <h3>Sustainable Style Voices</h3>
+              <p>
+                Fashion creators for a three-month responsible clothing
+                campaign.
+              </p>
+              <div>
+                <small>India · Instagram</small>
+                <b>Apply by 12 Sep</b>
+              </div>
+              <button class="panel-primary">View opportunity</button>
+            </article>
+            <article>
+              <span>EVENT</span>
+              <h3>Creator Economy Summit</h3>
+              <p>Applications open for speakers and creator panelists.</p>
+              <div>
+                <small>Dubai · In person</small>
+                <b>Apply by 18 Sep</b>
+              </div>
+              <a
+                class="panel-primary event-view-button"
+                href="event-details.html"
+                >View full event</a
+              >
+            </article>
+            <article>
+              <span>CREATOR PROGRAM</span>
+              <h3>GICA Growth Lab</h3>
+              <p>Six-week professional development cohort.</p>
+              <div>
+                <small>Global · Online</small>
+                <b>Apply by 24 Sep</b>
+              </div>
+              <button class="panel-primary">View opportunity</button>
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="panel-view"
+          id="panel-network"
+          data-title="Creator Network"
+          data-eyebrow="YOUR NICHE. YOUR CITY. YOUR OPPORTUNITIES."
+        >
+          <div class="network-panel-hero">
+            <div>
+              <span>GICA CREATOR NETWORK™</span>
+              <h2>Creators grow together.</h2>
+              <p>
+                Build professional connections around your niche, location and
+                business goals—then turn them into referrals, teams,
+                collaborations and measurable opportunities.
+              </p>
+              <div>
+                <button class="panel-primary" data-network-action="create">
+                  + Create Creator Circle</button
+                ><button
+                  class="panel-secondary"
+                  data-network-tab-open="discover"
+                >
+                  Discover networks
+                </button>
+              </div>
+            </div>
+            <div class="network-score-card">
+              <small>NETWORK CONTRIBUTION SCORE</small><strong>86</strong
+              ><span>Community Builder</span>
+              <div><i style="width: 86%"></i></div>
+              <p>Measures participation—not creator quality.</p>
+            </div>
+          </div>
+          <div class="network-kpis">
+            <article>
+              <span>CONNECTIONS</span><strong>82</strong
+              ><small>+9 this month</small>
+            </article>
+            <article>
+              <span>REFERRALS GIVEN</span><strong>24</strong
+              ><small>11 successful</small>
+            </article>
+            <article>
+              <span>COLLABORATIONS</span><strong>18</strong
+              ><small>8 network-generated</small>
+            </article>
+            <article>
+              <span>NETWORK VALUE</span><strong>₹10.4L</strong
+              ><small>Confirmed platform activity</small>
+            </article>
+          </div>
+          <div class="network-tabs">
+            <button class="active" data-network-tab="discover">Discover</button
+            ><button data-network-tab="circles">My Circles</button
+            ><button data-network-tab="feed">Network Feed</button
+            ><button data-network-tab="find">Find Creator</button
+            ><button data-network-tab="referrals">Referrals</button
+            ><button data-network-tab="board">Collaboration Board</button
+            ><button data-network-tab="meetings">Meetings</button
+            ><button data-network-tab="impact">Analytics</button>
+          </div>
+
+          <div class="network-view active" id="network-discover">
+            <div class="network-section-title">
+              <div>
+                <span>SMART RECOMMENDATIONS</span>
+                <h3>Your network opportunities</h3>
+              </div>
+              <p>Matched by niche, city, language and collaboration goals.</p>
+            </div>
+            <div class="circle-grid" id="discover-circle-grid">
+              <article data-circle="Kozhikode Food Creators">
+                <div class="circle-icon food">KF</div>
+                <span>LOCAL · FOOD</span>
+                <h3>Kozhikode Food Creators</h3>
+                <p>38 creators · 12 collaborations · 8 brands</p>
+                <div class="circle-tags">
+                  <i>Malayalam</i><i>Kozhikode</i><i>Food</i>
+                </div>
+                <button class="panel-primary circle-join">Join Circle</button>
+              </article>
+              <article data-circle="Kerala Fashion Creator Network">
+                <div class="circle-icon fashion">KF</div>
+                <span>STATE · FASHION</span>
+                <h3>Kerala Fashion Creator Network</h3>
+                <p>120 creators · 15 cities · 42 campaigns</p>
+                <div class="circle-tags">
+                  <i>Fashion</i><i>Kerala</i><i>Brand Work</i>
+                </div>
+                <button class="panel-primary circle-join">Join Circle</button>
+              </article>
+              <article data-circle="Mumbai Lifestyle Collective">
+                <div class="circle-icon lifestyle">ML</div>
+                <span>CITY · LIFESTYLE</span>
+                <h3>Mumbai Lifestyle Collective</h3>
+                <p>64 creators · 9 opportunities this week</p>
+                <div class="circle-tags">
+                  <i>Lifestyle</i><i>Mumbai</i><i>English</i>
+                </div>
+                <button class="panel-primary circle-join">Join Circle</button>
+              </article>
+            </div>
+          </div>
+
+          <div class="network-view" id="network-circles">
+            <div class="network-section-title">
+              <div>
+                <span>MY NETWORKS</span>
+                <h3>Your Creator Circles</h3>
+              </div>
+              <button class="panel-primary" data-network-action="create">
+                + Propose Circle
+              </button>
+            </div>
+            <div class="my-circles-list" id="my-circles-list"></div>
+            <div class="network-empty" id="circles-empty">
+              <span>◎</span>
+              <h3>No circles joined yet.</h3>
+              <p>
+                Discover a niche and location-based circle to begin networking.
+              </p>
+            </div>
+          </div>
+
+          <div class="network-view" id="network-feed">
+            <div class="network-feed-layout">
+              <section class="network-feed-main">
+                <form id="network-post-form">
+                  <div class="post-avatar">AR</div>
+                  <div>
+                    <select name="type">
+                      <option>Looking For</option>
+                      <option>Collaboration</option>
+                      <option>Opportunity</option>
+                      <option>Referral</option>
+                      <option>Announcement</option>
+                      <option>Success</option></select
+                    ><textarea
+                      name="message"
+                      required
+                      placeholder="Share a professional network update…"
+                    ></textarea
+                    ><button class="panel-primary">Post to network</button>
+                  </div>
+                </form>
+                <div id="network-feed-list"></div>
+              </section>
+              <aside class="panel-box">
+                <span>FEED PRINCIPLE</span>
+                <h3>Professional networking only.</h3>
+                <p>
+                  Share requirements, opportunities, referrals, collaboration
+                  needs and community success—not general social content.
+                </p>
+              </aside>
+            </div>
+          </div>
+
+          <div class="network-view" id="network-find">
+            <div class="network-section-title">
+              <div>
+                <span>FIND A CREATOR</span>
+                <h3>Build the right creator team</h3>
+              </div>
+              <label class="availability-control"
+                ><span>My availability</span
+                ><select id="creator-availability">
+                  <option>Available for Collaboration</option>
+                  <option>Currently Busy</option>
+                  <option>Available From 15 September</option>
+                </select></label
+              >
+            </div>
+            <div class="creator-find-tools">
+              <input
+                id="creator-network-search"
+                type="search"
+                placeholder="Search niche, city, language or skill"
+              /><select id="creator-network-filter">
+                <option value="all">All locations</option>
+                <option>Kozhikode</option>
+                <option>Mumbai</option>
+                <option>Dubai</option>
+              </select>
+            </div>
+            <div class="network-creator-grid" id="network-creator-grid">
+              <article
+                data-search="arun food travel kozhikode malayalam photographer"
+                data-creator-name="Arun Kumar"
+                data-creator-role="Food & Travel Creator"
+                data-creator-location="Kozhikode, India"
+                data-creator-image="images/creator-arun.webp"
+                data-creator-bio="Visual storyteller creating food, travel and culture films across Kerala. Available for destination campaigns, hospitality shoots and creator collaborations."
+                data-creator-stats="128K followers · 4.9 rating · 42 collaborations"
+              >
+                <div class="creator-card-photo">
+                  <img
+                    src="images/creator-arun.webp"
+                    alt="Arun Kumar, food and travel creator"
+                  />
+                  <span class="creator-available">● Available</span>
+                  <button
+                    class="creator-photo-view"
+                    aria-label="View Arun Kumar profile"
+                  >
+                    View profile
+                  </button>
+                </div>
+                <div class="creator-card-body">
+                  <span class="creator-verified">✓ GICA VERIFIED</span>
+                  <h3>Arun Kumar</h3>
+                  <p>Food & Travel Creator · Kozhikode</p>
+                  <div class="creator-skills">
+                    <i>Photography</i><i>Reels</i><i>Malayalam</i>
+                  </div>
+                  <div class="creator-card-stats">
+                    <span><b>128K</b>Followers</span
+                    ><span><b>42</b>Collabs</span><span><b>4.9</b>Rating</span>
+                  </div>
+                  <div class="creator-card-actions">
+                    <button class="panel-secondary creator-profile-view">
+                      View Profile</button
+                    ><button class="panel-primary network-connect">
+                      Connect
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article
+                data-search="meera fashion beauty mumbai hindi stylist"
+                data-creator-name="Meera Shah"
+                data-creator-role="Fashion & Beauty Creator"
+                data-creator-location="Mumbai, India"
+                data-creator-image="images/creator-meera.webp"
+                data-creator-bio="Fashion stylist and UGC specialist building premium beauty and lifestyle campaigns for digital-first brands."
+                data-creator-stats="215K followers · 4.8 rating · 67 collaborations"
+              >
+                <div class="creator-card-photo">
+                  <img
+                    src="images/creator-meera.webp"
+                    alt="Meera Shah, fashion and beauty creator"
+                  /><span class="creator-available">● Available</span
+                  ><button
+                    class="creator-photo-view"
+                    aria-label="View Meera Shah profile"
+                  >
+                    View profile
+                  </button>
+                </div>
+                <div class="creator-card-body">
+                  <span class="creator-verified">✓ GICA VERIFIED</span>
+                  <h3>Meera Shah</h3>
+                  <p>Fashion & Beauty Creator · Mumbai</p>
+                  <div class="creator-skills">
+                    <i>Styling</i><i>UGC</i><i>Hindi</i>
+                  </div>
+                  <div class="creator-card-stats">
+                    <span><b>215K</b>Followers</span
+                    ><span><b>67</b>Collabs</span><span><b>4.8</b>Rating</span>
+                  </div>
+                  <div class="creator-card-actions">
+                    <button class="panel-secondary creator-profile-view">
+                      View Profile</button
+                    ><button class="panel-primary network-connect">
+                      Connect
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article
+                data-search="zain technology videography dubai english producer"
+                data-creator-name="Zain Ali"
+                data-creator-role="Technology & Video Creator"
+                data-creator-location="Dubai, UAE"
+                data-creator-image="images/creator-zain.webp"
+                data-creator-bio="Technology filmmaker and commercial video producer creating launch films, product explainers and premium branded content."
+                data-creator-stats="186K followers · 4.9 rating · 51 collaborations"
+              >
+                <div class="creator-card-photo">
+                  <img
+                    src="images/creator-zain.webp"
+                    alt="Zain Ali, technology and video creator"
+                  /><span class="creator-available busy">● Limited</span
+                  ><button
+                    class="creator-photo-view"
+                    aria-label="View Zain Ali profile"
+                  >
+                    View profile
+                  </button>
+                </div>
+                <div class="creator-card-body">
+                  <span class="creator-verified">✓ GICA VERIFIED</span>
+                  <h3>Zain Ali</h3>
+                  <p>Technology & Video Creator · Dubai</p>
+                  <div class="creator-skills">
+                    <i>Video</i><i>Production</i><i>English</i>
+                  </div>
+                  <div class="creator-card-stats">
+                    <span><b>186K</b>Followers</span
+                    ><span><b>51</b>Collabs</span><span><b>4.9</b>Rating</span>
+                  </div>
+                  <div class="creator-card-actions">
+                    <button class="panel-secondary creator-profile-view">
+                      View Profile</button
+                    ><button class="panel-primary network-connect">
+                      Connect
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="network-view" id="network-referrals">
+            <div class="network-section-title">
+              <div>
+                <span>CREATOR REFERRALS</span>
+                <h3>Help opportunities reach the right creator.</h3>
+              </div>
+              <button class="panel-primary" id="create-referral">
+                + Create referral
+              </button>
+            </div>
+            <div class="referral-kpis">
+              <div><b>24</b><span>Given</span></div>
+              <div><b>16</b><span>Received</span></div>
+              <div><b>11</b><span>Successful</span></div>
+              <div><b>8</b><span>Collaborations</span></div>
+            </div>
+            <div class="referral-list" id="referral-list"></div>
+          </div>
+
+          <div class="network-view" id="network-board">
+            <div class="network-section-title">
+              <div>
+                <span>COLLABORATION NEEDED</span>
+                <h3>Find complementary creator skills.</h3>
+              </div>
+              <button class="panel-primary" id="create-collab-post">
+                + Post requirement
+              </button>
+            </div>
+            <div class="collaboration-needs" id="collaboration-needs">
+              <article>
+                <span>VIDEOGRAPHER</span>
+                <h3>Travel campaign in Wayanad</h3>
+                <p>
+                  Need a drone videographer for a 3-day tourism collaboration.
+                </p>
+                <small>Posted by Arun Kumar · Kozhikode Food Circle</small
+                ><button class="panel-secondary">I'm interested</button>
+              </article>
+              <article>
+                <span>CO-CREATOR</span>
+                <h3>Joint sustainable-fashion Reel</h3>
+                <p>
+                  Looking for a Malayalam lifestyle creator with an audience in
+                  Kerala.
+                </p>
+                <small>Posted by Meera Shah · Fashion Network</small
+                ><button class="panel-secondary">I'm interested</button>
+              </article>
+            </div>
+          </div>
+
+          <div class="network-view" id="network-meetings">
+            <div class="network-section-title">
+              <div>
+                <span>WEEKLY CREATOR MEET</span>
+                <h3>Meet, refer and collaborate.</h3>
+              </div>
+              <a class="panel-secondary" href="events.html"
+                >Network events ↗</a
+              >
+            </div>
+            <div class="meeting-card">
+              <div class="meeting-date">
+                <strong>WED</strong><span>07:00 PM</span>
+              </div>
+              <div>
+                <span>NEXT CIRCLE MEETING</span>
+                <h3>Kerala Fashion Creator Network</h3>
+                <p>
+                  Introductions · Creator spotlight · Opportunities · Referrals
+                  · Brand requirements · Action commitments
+                </p>
+              </div>
+              <button class="panel-primary" id="meeting-rsvp">
+                Confirm attendance
+              </button>
+            </div>
+            <div class="network-calendar">
+              <article>
+                <b>05 SEP</b><span>Media Kit Workshop</span><i>Workshop</i>
+              </article>
+              <article>
+                <b>12 SEP</b><span>Creator Collaboration Day</span
+                ><i>Content Day</i>
+              </article>
+              <article>
+                <b>18 OCT</b><span>Creator Economy Summit</span
+                ><i>Conference</i>
+              </article>
+            </div>
+          </div>
+
+          <div class="network-view" id="network-impact">
+            <div class="network-section-title">
+              <div>
+                <span>NETWORK ANALYTICS</span>
+                <h3>Your community impact</h3>
+              </div>
+            </div>
+            <div class="network-impact-grid">
+              <article>
+                <span>COMMUNITIES JOINED</span
+                ><strong id="analytics-circle-count">0</strong
+                ><small>Across niche and location</small>
+              </article>
+              <article>
+                <span>MEETINGS ATTENDED</span><strong>12</strong
+                ><small>84% attendance</small>
+              </article>
+              <article>
+                <span>OPPORTUNITIES</span><strong>31</strong
+                ><small>Shared and received</small>
+              </article>
+              <article>
+                <span>BUSINESS GENERATED</span><strong>₹10.4L</strong
+                ><small>Confirmed records only</small>
+              </article>
+            </div>
+            <div class="network-pipeline">
+              <span>NETWORK BUSINESS PIPELINE</span>
+              <div>
+                <b>Connection</b><i>→</i><b>Referral</b><i>→</i
+                ><b>Opportunity</b><i>→</i><b>Collaboration</b><i>→</i
+                ><b>Invoice</b><i>→</i><b>Payment</b>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="panel-view"
+          id="panel-events"
+          data-title="Events"
+          data-eyebrow="VIEW, REGISTER & MANAGE EVENTS"
+        >
+          <div class="panel-page-head">
+            <div>
+              <span>GICA EVENTS</span>
+              <h2>Creator events & programs</h2>
+              <p>
+                Browse upcoming events, register and manage your confirmed
+                registrations.
+              </p>
+            </div>
+            <a class="panel-secondary event-directory-link" href="events.html"
+              >Public events page ↗</a
+            >
+          </div>
+          <div class="panel-event-tabs">
+            <button class="active" data-event-tab="upcoming">
+              Upcoming events</button
+            ><button data-event-tab="registered">
+              My registered events <b id="event-tab-count">0</b>
+            </button>
+          </div>
+          <div class="panel-event-view active" id="panel-events-upcoming">
+            <div class="panel-events-grid">
+              <article data-event-id="GICA-EVT-2026-001">
+                <div class="panel-event-date red">
+                  <strong>18</strong><span>OCT<br />2026</span>
+                </div>
+                <div class="panel-event-copy">
+                  <span>FLAGSHIP CONFERENCE</span>
+                  <h3>GICA Creator Economy Summit 2026</h3>
+                  <p>Dubai, UAE · 09:00–18:00 GST</p>
+                  <div>
+                    <a href="event-details.html">View full event</a
+                    ><button class="panel-primary event-quick-register">
+                      Register now
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article data-event-id="GICA-EVT-2026-002">
+                <div class="panel-event-date dark">
+                  <strong>05</strong><span>NOV<br />2026</span>
+                </div>
+                <div class="panel-event-copy">
+                  <span>CREATOR WORKSHOP</span>
+                  <h3>Build a Brand-Ready Media Kit</h3>
+                  <p>Mumbai, India · 14:00–17:00 IST</p>
+                  <div>
+                    <a href="event-details.html">View event</a
+                    ><button class="panel-primary event-quick-register">
+                      Register now
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article data-event-id="GICA-EVT-2026-003">
+                <div class="panel-event-date gold">
+                  <strong>22</strong><span>NOV<br />2026</span>
+                </div>
+                <div class="panel-event-copy">
+                  <span>ONLINE MASTERCLASS</span>
+                  <h3>Creator Finance Essentials</h3>
+                  <p>Global online · 18:30–20:00 IST</p>
+                  <div>
+                    <a href="event-details.html">View event</a
+                    ><button class="panel-primary event-quick-register">
+                      Register now
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article data-event-id="GICA-EVT-2026-004">
+                <div class="panel-event-date connect">
+                  <strong>12</strong><span>DEC<br />2026</span>
+                </div>
+                <div class="panel-event-copy">
+                  <span>CREATOR NETWORKING</span>
+                  <h3>GICA Creator Connect — Kochi</h3>
+                  <p>Kochi, India · 16:00–19:00 IST</p>
+                  <div>
+                    <a href="event-details.html?event=connect">View event</a
+                    ><button class="panel-primary event-quick-register">
+                      Register now
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="panel-event-view" id="panel-events-registered">
+            <div
+              class="registered-events-list"
+              id="registered-events-list"
+            ></div>
+            <div class="registered-empty" id="registered-events-empty">
+              <span>◆</span>
+              <h3>No registered events yet.</h3>
+              <p>Choose an upcoming event and register to see it here.</p>
+              <button class="panel-primary" data-show-upcoming>
+                Browse events
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="panel-view"
+          id="panel-finance"
+          data-title="Finance"
+          data-eyebrow="CREATOR BUSINESS FINANCE"
+        >
+          <div class="kpi-grid">
+            <article>
+              <span>TOTAL REVENUE</span>
+              <strong>₹4,85,000</strong>
+              <small>This year</small>
+            </article>
+            <article>
+              <span>RECEIVED</span>
+              <strong>₹4,18,000</strong>
+              <small>86% collected</small>
+            </article>
+            <article>
+              <span>PENDING</span>
+              <strong>₹67,000</strong>
+              <small>3 payments</small>
+            </article>
+            <article>
+              <span>NET INCOME</span>
+              <strong>₹3,62,500</strong>
+              <small>After expenses</small>
+            </article>
+          </div>
+          <div class="panel-columns">
+            <section class="panel-box">
+              <div class="box-head">
+                <div>
+                  <span>RECENT INVOICES</span>
+                  <h2>Invoices & payments</h2>
+                </div>
+                <button class="panel-primary">+ New invoice</button>
+              </div>
+              <div class="simple-transactions">
+                <div>
+                  <span>
+                    <b>GICA-INV-00082</b>
+                    <small>Acme Fashion</small>
+                  </span>
+                  <strong>₹25,000</strong>
+                  <i class="status warning">PENDING</i>
+                </div>
+                <div>
+                  <span>
+                    <b>GICA-INV-00079</b>
+                    <small>Beauty Co</small>
+                  </span>
+                  <strong>₹42,000</strong>
+                  <i class="status">PAID</i>
+                </div>
+                <div>
+                  <span>
+                    <b>GICA-INV-00074</b>
+                    <small>City Style</small>
+                  </span>
+                  <strong>₹75,000</strong>
+                  <i class="status urgent">OVERDUE</i>
+                </div>
+              </div>
+            </section>
+            <section class="panel-box">
+              <span>INCOME VS EXPENSES</span>
+              <h2>Monthly profitability</h2>
+              <div class="finance-bars">
+                <i style="height: 55%"> </i>
+                <i style="height: 32%"> </i>
+                <i style="height: 76%"> </i>
+                <i style="height: 42%"> </i>
+                <i style="height: 90%"> </i>
+                <i style="height: 51%"> </i>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section
+          class="panel-view"
+          id="panel-analytics"
+          data-title="Analytics"
+          data-eyebrow="PROFILE & BUSINESS PERFORMANCE"
+        >
+          <div class="kpi-grid">
+            <article>
+              <span>PROFILE VIEWS</span>
+              <strong>12.4K</strong>
+              <small>Last 90 days</small>
+            </article>
+            <article>
+              <span>PORTFOLIO VIEWS</span>
+              <strong>4.8K</strong>
+              <small>38% of visits</small>
+            </article>
+            <article>
+              <span>INQUIRY RATE</span>
+              <strong>3.8%</strong>
+              <small>+0.7% this month</small>
+            </article>
+            <article>
+              <span>AVG CAMPAIGN</span>
+              <strong>₹46K</strong>
+              <small>Completed work</small>
+            </article>
+          </div>
+          <div class="panel-columns">
+            <section class="panel-box analytics-main">
+              <span>PROFILE PERFORMANCE</span>
+              <h2>Views over 12 weeks</h2>
+              <div class="line-chart">
+                <svg viewBox="0 0 600 220">
+                  <polyline
+                    points="0,190 55,170 110,180 165,140 220,150 275,105 330,120 385,80 440,95 495,45 550,60 600,22"
+                    fill="none"
+                    stroke="#e5080a"
+                    stroke-width="5"
+                  />
+                </svg>
+              </div>
+            </section>
+            <section class="panel-box">
+              <span>TRAFFIC SOURCES</span>
+              <h2>Where visitors find you</h2>
+              <div class="source-list">
+                <div>
+                  <span>Direct profile link</span>
+                  <b>44%</b>
+                </div>
+                <div>
+                  <span>GICA directory</span>
+                  <b>28%</b>
+                </div>
+                <div>
+                  <span>Social platforms</span>
+                  <b>19%</b>
+                </div>
+                <div>
+                  <span>Search</span>
+                  <b>9%</b>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section
+          class="panel-view"
+          id="panel-membership"
+          data-title="Membership & Verification"
+          data-eyebrow="GICA STATUS"
+        >
+          <div class="membership-status">
+            <div>
+              <span>ACTIVE MEMBERSHIP</span>
+              <h2>GICA Professional Creator</h2>
+              <p>Member since 14 March 2026 · Renewal 14 March 2027</p>
+              <div class="member-id-large">GICA-CR-000125</div>
+            </div>
+            <div class="verification-seal">✓<span>VERIFIED</span></div>
+          </div>
+          <div class="panel-columns">
+            <section class="panel-box">
+              <h3>Verification checklist</h3>
+              <ul class="verification-list">
+                <li>
+                  <i>✓</i>
+                  <span>
+                    <b>Identity verified</b>
+                    <small>Approved 16 March 2026</small>
+                  </span>
+                </li>
+                <li>
+                  <i>✓</i>
+                  <span>
+                    <b>Creator profile reviewed</b>
+                    <small>Professional information approved</small>
+                  </span>
+                </li>
+                <li>
+                  <i>✓</i>
+                  <span>
+                    <b>Social account verified</b>
+                    <small>Primary Instagram connected</small>
+                  </span>
+                </li>
+              </ul>
+            </section>
+            <section class="panel-box">
+              <h3>QR public profile</h3>
+              <div class="qr-placeholder">GICA<br />QR</div>
+              <button class="panel-secondary">Download QR code</button>
+            </section>
+          </div>
+        </section>
+
+        <section
+          class="panel-view"
+          id="panel-settings"
+          data-title="Settings"
+          data-eyebrow="ACCOUNT, PRIVACY & SECURITY"
+        >
+          <div class="settings-layout">
+            <nav>
+              <button class="active">Account</button>
+              <button>Privacy</button>
+              <button>Notifications</button>
+              <button>Security</button>
+            </nav>
+            <section class="panel-box">
+              <h2>Account settings</h2>
+              <p>Manage login details and account security.</p>
+              <div class="panel-form-grid">
+                <label
+                  >Email address<input value="ananya@example.com" />
+                </label>
+                <label>Mobile number<input value="+91 98765 43210" /> </label>
+              </div>
+              <hr />
+              <h3>Security</h3>
+              <label class="setting-row">
+                <span>
+                  <b>Login notifications</b>
+                  <small>Alert me about new devices</small>
+                </span>
+                <input type="checkbox" checked />
+              </label>
+              <label class="setting-row">
+                <span>
+                  <b>Two-factor authentication</b>
+                  <small>Recommended for creator accounts</small>
+                </span>
+                <input type="checkbox" />
+              </label>
+              <button class="panel-primary">Save settings</button>
+            </section>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="panel.js"></script>
+    <script src="api-client.js"></script>
+    <script src="creator-app.js"></script>
+
+  <script>
+    (() => {
+      const SESSION_KEY = "gicaCreatorSession";
+      const FALLBACK_PHOTO = "images/creator-ananya.webp";
+
+      function getAuthToken() {
+        try {
+          const raw = localStorage.getItem(SESSION_KEY);
+          if (raw) {
+            const session = JSON.parse(raw);
+            if (session?.token) return session.token;
+          }
+        } catch (error) {
+          console.error("Session parse error:", error);
+        }
+
+        return localStorage.getItem("token") || localStorage.getItem("authToken") || localStorage.getItem("accessToken") || "";
+      }
+
+      function updateSessionUser(user) {
+        try {
+          const session = JSON.parse(localStorage.getItem(SESSION_KEY) || "null");
+          if (!session) return;
+          session.user = user;
+          localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+        } catch (error) {
+          console.error("Session update error:", error);
+        }
+      }
+
+      function displayValue(value, fallback = "—") {
+        return value === undefined || value === null || String(value).trim() === "" ? fallback : String(value);
+      }
+
+      function setText(id, value, fallback = "—") {
+        const el = document.getElementById(id);
+        if (el) el.textContent = displayValue(value, fallback);
+      }
+
+      function setValue(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.value = value === undefined || value === null ? "" : String(value);
+      }
+
+      function setSelectValue(id, value) {
+        const select = document.getElementById(id);
+        if (!select) return;
+        const normalized = value === undefined || value === null ? "" : String(value).trim();
+        if (!normalized) {
+          select.value = "";
+          return;
+        }
+        let option = Array.from(select.options).find((x) => x.value.toLowerCase() === normalized.toLowerCase());
+        if (!option) {
+          option = document.createElement("option");
+          option.value = normalized;
+          option.textContent = normalized;
+          select.appendChild(option);
+        }
+        select.value = option.value;
+      }
+
+      function setImage(id, src, alt) {
+        const img = document.getElementById(id);
+        if (!img) return;
+        img.src = src || FALLBACK_PHOTO;
+        img.alt = alt || "Creator profile";
+        img.onerror = () => {
+          img.onerror = null;
+          img.src = FALLBACK_PHOTO;
+        };
+      }
+
+      function formatBoolean(value) {
+        if (value === true) return "Verified";
+        if (value === false) return "Not verified";
+        return "—";
+      }
+
+      function formatDate(value) {
+        if (!value) return "—";
+        const date = new Date(value);
+        return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString();
+      }
+
+      function bindCurrentUser(user) {
+        const name = user?.name || user?.username || "Creator";
+        const firstName = String(name).trim().split(/\s+/)[0] || "Creator";
+        const creatorId = user?.creatorId || "—";
+        const username = user?.username || "";
+        const photo = user?.photo || user?.profilePhoto || user?.profileImage || user?.avatar || FALLBACK_PHOTO;
+        const fullyVerified = user?.isEmailVerified === true && user?.isMobileVerified === true;
+
+        setText("panel-user-name", name, "Creator");
+        setText("panel-user-id", creatorId);
+        setImage("panel-user-photo", photo, `${name} profile`);
+        setImage("dashboard-user-photo", photo, `${name} profile`);
+
+        const panelTitle = document.getElementById("panel-title");
+        if (panelTitle) panelTitle.textContent = `Welcome, ${firstName}.`;
+
+        const dashboardPanel = document.getElementById("panel-dashboard");
+        if (dashboardPanel) dashboardPanel.dataset.title = `Welcome, ${firstName}.`;
+
+        const hour = new Date().getHours();
+        const greeting = hour < 12 ? "GOOD MORNING" : hour < 17 ? "GOOD AFTERNOON" : "GOOD EVENING";
+        setText("dashboard-greeting", `${greeting}, ${firstName.toUpperCase()}`);
+
+        const badge = document.getElementById("dashboard-verification-badge");
+        if (badge) badge.textContent = fullyVerified ? "✓ VERIFIED CREATOR" : "VERIFICATION PENDING";
+
+        setText("profile-creator-id", creatorId);
+        setValue("profile-name", user?.name);
+        setValue("profile-username", user?.username);
+        setSelectValue("profile-creator-type", user?.creatorType);
+        setValue("profile-category", user?.category);
+        setValue("profile-country", user?.country);
+        setValue("profile-mobile", user?.mobile);
+        setValue("profile-email", user?.email);
+        setValue("profile-status", user?.status);
+        setValue("profile-city", user?.city);
+        setValue("profile-headline", user?.professionalHeadline || user?.headline);
+        setValue("profile-bio", user?.bio);
+
+        const visibility = document.querySelectorAll(
+          "#panel-profile .setting-row input[type='checkbox']"
+        );
+        if (visibility[0] && typeof user?.isPublic === "boolean") {
+          visibility[0].checked = user.isPublic;
+        }
+        if (visibility[1] && typeof user?.showPortfolio === "boolean") {
+          visibility[1].checked = user.showPortfolio;
+        }
+        if (visibility[2] && typeof user?.acceptInquiries === "boolean") {
+          visibility[2].checked = user.acceptInquiries;
+        }
+
+        setText("profile-info-creator-id", user?.creatorId);
+        setText("profile-info-role", user?.role);
+        setText("profile-info-email-verified", formatBoolean(user?.isEmailVerified));
+        setText("profile-info-mobile-verified", formatBoolean(user?.isMobileVerified));
+        setText("profile-info-created", formatDate(user?.createdAt));
+        setText("profile-info-updated", formatDate(user?.updatedAt));
+
+        const verify = document.getElementById("profile-verification-status");
+        if (verify) verify.textContent = fullyVerified ? "Verified" : "Verification pending";
+
+        const publicLink = document.getElementById("profile-public-link");
+        if (publicLink) publicLink.textContent = username ? `gica.global/@${username}` : "gica.global/@—";
+
+        console.log("GICA user loaded:", user);
+      }
+
+      async function loadCurrentUser() {
+        const token = getAuthToken();
+        if (!token) {
+          window.location.replace("login.html");
+          return;
+        }
+
+        try {
+          const result = await GicaApi.request("/api/user/me", { method: "GET", token });
+          if (result.success !== true || !result.data) throw new Error(result.message || "Unable to load user.");
+          bindCurrentUser(result.data);
+          updateSessionUser(result.data);
+        } catch (error) {
+          console.error("Load current user error:", error);
+        }
+      }
+
+      async function saveProfile() {
+        const token = getAuthToken();
+        const button = document.getElementById("save-profile-btn");
+        const status = document.getElementById("profile-save-status");
+
+        const payload = {
+          name: document.getElementById("profile-name")?.value.trim() || "",
+          username: document.getElementById("profile-username")?.value.trim().toLowerCase() || "",
+          creatorType: document.getElementById("profile-creator-type")?.value || "",
+          category: document.getElementById("profile-category")?.value.trim() || "",
+          country: document.getElementById("profile-country")?.value.trim() || "",
+          mobile: document.getElementById("profile-mobile")?.value.trim() || "",
+          city: document.getElementById("profile-city")?.value.trim() || "",
+          professionalHeadline: document.getElementById("profile-headline")?.value.trim() || "",
+          bio: document.getElementById("profile-bio")?.value.trim() || ""
+        };
+
+        if (!payload.name || !payload.username || !payload.country || !payload.mobile) {
+          if (status) status.textContent = "Name, username, country and mobile are required.";
+          return;
+        }
+
+        const original = button?.textContent || "Save profile";
+
+        try {
+          if (button) {
+            button.disabled = true;
+            button.textContent = "Saving...";
+          }
+          if (status) status.textContent = "";
+
+          const result = await GicaApi.request("/api/user/me", {
+            method: "PUT",
+            token,
+            body: payload
+          });
+
+          if (result.success !== true || !result.data) throw new Error(result.message || "Unable to update profile.");
+
+          bindCurrentUser(result.data);
+          updateSessionUser(result.data);
+          if (status) status.textContent = "Profile updated successfully.";
+        } catch (error) {
+          console.error("Update profile error:", error);
+          if (status) status.textContent = error.message || "Unable to update profile.";
+        } finally {
+          if (button) {
+            button.disabled = false;
+            button.textContent = original;
+          }
+        }
+      }
+
+      document.getElementById("save-profile-btn")?.addEventListener("click", saveProfile);
+
+      document.getElementById("copy-profile-link")?.addEventListener("click", async () => {
+        const value = document.getElementById("profile-public-link")?.textContent || "";
+        if (!value || value.endsWith("@—")) return;
+        try { await navigator.clipboard.writeText(value); } catch (_) {}
+      });
+
+      document.querySelector(".panel-logout")?.addEventListener("click", () => {
+        localStorage.removeItem(SESSION_KEY);
+        localStorage.removeItem("token");
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("accessToken");
+      });
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", loadCurrentUser);
+      } else {
+        loadCurrentUser();
+      }
+    })();
+  </script>
+  </body>
+</html>

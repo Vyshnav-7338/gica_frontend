@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Creator Registration | Join GICA</title>
+
+    <meta
+      name="description"
+      content="Create a GICA creator account and begin building your professional creator identity."
+    />
+
+    <meta name="robots" content="noindex,follow" />
+    <meta name="theme-color" content="#3d3b3b" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body class="auth-page register-page">
+    <!-- HEADER -->
+    <header class="auth-header">
+      <a class="brand brand-image" href="index.html">
+        <img src="images/GICA-logo.png" alt="GICA" />
+      </a>
+
+      <a class="auth-back" href="index.html">
+        ← Back to website
+      </a>
+    </header>
+
+    <!-- MAIN -->
+    <main class="auth-layout">
+
+      <!-- LEFT SIDE -->
+      <section class="auth-story">
+        <p class="eyebrow">
+          <span></span>
+          Join the creator ecosystem
+        </p>
+
+        <h1>
+          Build your professional
+          <em>GICA identity.</em>
+        </h1>
+
+        <p>
+          Register with the essential details now. Complete your profile,
+          social accounts, portfolio, services and verification securely
+          after account creation.
+        </p>
+
+        <div class="identity-preview">
+          <small>YOUR PERMANENT CREATOR ID</small>
+
+          <strong>GICA-CR-XXXXXX</strong>
+
+          <span>
+            Issued after successful registration
+          </span>
+        </div>
+      </section>
+
+      <!-- REGISTRATION CARD -->
+      <section
+        class="auth-card register-card"
+        aria-labelledby="register-title"
+      >
+        <div class="auth-card-head">
+          <span>CREATOR REGISTRATION</span>
+
+          <h2 id="register-title">
+            Create account
+          </h2>
+
+          <p>
+            Fields marked * are required.
+          </p>
+        </div>
+
+       <form
+  class="auth-form"
+  id="registerForm"
+  data-demo-form
+  novalidate
+>
+
+          <!-- NAME / COUNTRY -->
+          <div class="field-row">
+            <label>
+              Full name *
+
+              <input
+                type="text"
+                name="name"
+                id="name"
+                autocomplete="name"
+                required
+                placeholder="Your full name"
+              />
+            </label>
+
+            <label>
+              Country *
+
+              <select
+                name="country"
+                id="country"
+                required
+              >
+                <option value="">
+                  Select country
+                </option>
+
+                <option value="India">
+                  India
+                </option>
+
+                <option value="United Arab Emirates">
+                  United Arab Emirates
+                </option>
+
+                <option value="United Kingdom">
+                  United Kingdom
+                </option>
+
+                <option value="United States">
+                  United States
+                </option>
+
+                <option value="Other">
+                  Other
+                </option>
+              </select>
+            </label>
+          </div>
+
+          <!-- EMAIL / MOBILE -->
+          <div class="field-row">
+
+            <!-- EMAIL -->
+            <label>
+              Email address *
+
+              <div class="email-otp-field">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  autocomplete="email"
+                  required
+                  placeholder="you@example.com"
+                />
+
+                <button
+                  type="button"
+                  id="sendOtpBtn"
+                  class="send-otp-inside"
+                >
+                  Send OTP
+                </button>
+              </div>
+
+              <span
+                id="emailVerifiedBadge"
+                class="verified-badge"
+                style="display: none"
+              >
+                ✓ Email verified
+              </span>
+            </label>
+
+            <!-- MOBILE -->
+            <label>
+              Mobile number *
+
+              <input
+                type="tel"
+                name="mobile"
+                id="mobile"
+                autocomplete="tel"
+                required
+                placeholder="Country code and number"
+              />
+            </label>
+
+          </div>
+
+          <!-- EMAIL OTP -->
+          <div
+            class="email-otp-section"
+            id="emailOtpSection"
+            style="display: none"
+          >
+            <label>
+              Email OTP *
+
+              <div class="email-otp-field">
+                <input
+                  type="text"
+                  id="emailOtp"
+                  inputmode="numeric"
+                  maxlength="6"
+                  autocomplete="one-time-code"
+                  placeholder="Enter 6-digit OTP"
+                />
+
+                <button
+                  type="button"
+                  id="verifyOtpBtn"
+                  class="send-otp-inside"
+                >
+                  Verify
+                </button>
+              </div>
+            </label>
+
+            <div class="otp-information">
+              <span id="otpTimer"></span>
+
+              <button
+                type="button"
+                id="resendOtpBtn"
+                class="otp-resend"
+                disabled
+              >
+                Resend OTP
+              </button>
+            </div>
+
+            <p
+              id="otpStatus"
+              class="otp-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </div>
+
+          <!-- CREATOR TYPE / CATEGORY -->
+          <div class="field-row">
+
+            <label>
+              Creator type *
+
+              <select
+                name="creatorType"
+                id="creatorType"
+                required
+              >
+                <option value="">
+                  Select creator type
+                </option>
+
+                <option value="Influencer">
+                  Influencer
+                </option>
+
+                <option value="Content Creator">
+                  Content Creator
+                </option>
+
+                <option value="Digital Creator">
+                  Digital Creator
+                </option>
+
+                <option value="UGC Creator">
+                  UGC Creator
+                </option>
+
+                <option value="Creative Professional">
+                  Creative Professional
+                </option>
+              </select>
+            </label>
+
+            <label>
+              Primary category *
+
+              <select
+                name="category"
+                id="category"
+                required
+              >
+                <option value="">
+                  Select category
+                </option>
+
+                <option value="Lifestyle">
+                  Lifestyle
+                </option>
+
+                <option value="Fashion">
+                  Fashion
+                </option>
+
+                <option value="Beauty">
+                  Beauty
+                </option>
+
+                <option value="Travel">
+                  Travel
+                </option>
+
+                <option value="Food">
+                  Food
+                </option>
+
+                <option value="Technology">
+                  Technology
+                </option>
+
+                <option value="Education">
+                  Education
+                </option>
+
+                <option value="Fitness & Sports">
+                  Fitness &amp; Sports
+                </option>
+
+                <option value="Entertainment">
+                  Entertainment
+                </option>
+
+                <option value="Gaming">
+                  Gaming
+                </option>
+
+                <option value="Business & Finance">
+                  Business &amp; Finance
+                </option>
+
+                <option value="Other">
+                  Other
+                </option>
+              </select>
+            </label>
+
+          </div>
+
+          <!-- PASSWORD -->
+          <div class="field-row">
+
+            <label>
+              Password *
+
+              <input
+                type="password"
+                name="password"
+                id="password"
+                autocomplete="new-password"
+                minlength="8"
+                required
+                placeholder="Minimum 8 characters"
+              />
+            </label>
+
+            <label>
+              Confirm password *
+
+              <input
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword"
+                autocomplete="new-password"
+                minlength="8"
+                required
+                placeholder="Repeat password"
+              />
+            </label>
+
+          </div>
+
+          <!-- TERMS -->
+          <label class="remember consent-auth">
+           <input
+  type="checkbox"
+  id="terms"
+  name="termsAccepted"
+  required
+/>
+
+            <span>
+              I have read and accept the
+
+              <a
+                href="terms-and-conditions.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Terms &amp; Conditions
+              </a>
+
+              and
+
+              <a
+                href="privacy-policy.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy Policy
+              </a>.
+            </span>
+          </label>
+
+          <!-- SUBMIT -->
+          <button
+            class="button primary auth-submit"
+            id="registerBtn"
+            type="submit"
+          >
+            Create GICA account
+            <span>↗</span>
+          </button>
+
+          <p
+            id="formStatus"
+            class="form-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+
+        </form>
+
+        <div class="auth-switch">
+          Already registered?
+
+          <a href="login.html">
+            Login to Creator Panel
+          </a>
+        </div>
+
+      </section>
+
+    </main>
+
+    <script src="api-client.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>
