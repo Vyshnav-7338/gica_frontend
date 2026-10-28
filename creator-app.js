@@ -1151,234 +1151,230 @@
         renderProfile();
       };
   }
+  
+/* =========================================================
+   PORTFOLIO API
+========================================================= */
 
-  /* =========================================================
-     PORTFOLIO
-  ========================================================= */
+const PORTFOLIO_API = "http://localhost:7010/api/portfolio";
 
-  function renderPortfolio() {
-    const root =
-      $(".portfolio-manager");
+function getPortfolioId(item) {
+  return String(item._id || item.id);
+}
 
-    if (!root) {
-      return;
+/* =========================================================
+   LOAD PORTFOLIO FROM MONGODB
+========================================================= */
+
+async function loadPortfolio() {
+  const root = $(".portfolio-manager");
+
+  if (root) {
+    root.innerHTML = "<p>Loading portfolio items...</p>";
+  }
+
+  try {
+    const response = await fetch(PORTFOLIO_API);
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(result.message || "Failed to load portfolio");
     }
 
-    if (
-      !state.portfolio.length
-    ) {
+    state.portfolio = (result.data || []).map((item) => ({
+      ...item,
+      id: String(item._id),
+      meta: item.description,
+      status: (item.visibility || "private").toUpperCase(),
+      tone: "red"
+    }));
+
+    renderPortfolio();
+  } catch (error) {
+    console.error("Portfolio loading error:", error);
+
+    if (root) {
       root.innerHTML = `
         <div class="network-empty">
-          <h3>
-            No portfolio items
-          </h3>
-          <p>
-            Add your first portfolio item.
-          </p>
+          <h3>Unable to load portfolio</h3>
+          <p>${esc(error.message)}</p>
         </div>
       `;
-
-      return;
     }
 
-    root.innerHTML =
-      state.portfolio
-        .map(
-          (item, index) => `
-            <article
-              data-id="${item.id}"
-            >
+    toast("Failed to load portfolio");
+  }
+}
 
-              <div
-                class="work-thumb ${esc(
-                  item.tone ||
-                    "red"
-                )}"
-              >
-                ${String(
-                  index + 1
-                ).padStart(
-                  2,
-                  "0"
-                )}
-              </div>
+/* =========================================================
+   PORTFOLIO
+========================================================= */
 
-              <div>
-                <b>
-                  ${esc(
-                    item.title
-                  )}
-                </b>
+function renderPortfolio() {
+  const root = $(".portfolio-manager");
 
-                <small>
-                  ${esc(
-                    item.meta
-                  )}
-                </small>
-              </div>
-
-              <span
-                class="status"
-              >
-                ${esc(
-                  item.status
-                )}
-              </span>
-
-              <div
-                class="item-actions"
-              >
-                <button
-                  class="item-edit"
-                >
-                  Edit
-                </button>
-
-                <button
-                  class="item-delete"
-                >
-                  Delete
-                </button>
-              </div>
-
-            </article>
-          `
-        )
-        .join("");
-
-    $$(
-      ".item-edit",
-      root
-    ).forEach(
-      (button) => {
-        button.onclick =
-          () => {
-            const id =
-              Number(
-                button.closest(
-                  "article"
-                ).dataset.id
-              );
-
-            editPortfolio(
-              id
-            );
-          };
-      }
-    );
-
-    $$(
-      ".item-delete",
-      root
-    ).forEach(
-      (button) => {
-        button.onclick =
-          () => {
-            const id =
-              Number(
-                button.closest(
-                  "article"
-                ).dataset.id
-              );
-
-            if (
-              !confirm(
-                "Delete this portfolio item?"
-              )
-            ) {
-              return;
-            }
-
-            state.portfolio =
-              state.portfolio.filter(
-                (item) =>
-                  item.id !== id
-              );
-
-            save();
-
-            renderPortfolio();
-
-            toast(
-              "Portfolio item deleted"
-            );
-          };
-      }
-    );
+  if (!root) {
+    return;
   }
 
-  function editPortfolio(
-    id
-  ) {
-    const item =
-      state.portfolio.find(
-        (value) =>
-          value.id === id
-      );
+  if (!state.portfolio.length) {
+    root.innerHTML = `
+      <div class="network-empty">
+        <h3>No portfolio items</h3>
+        <p>Add your first portfolio item.</p>
+      </div>
+    `;
+    return;
+  }
 
-    modal(
-      item
-        ? "Edit portfolio item"
-        : "Add portfolio item",
+  root.innerHTML = state.portfolio.map((item, index) => `
+    <article data-id="${esc(getPortfolioId(item))}">
+      <div class="work-thumb ${esc(item.tone || "red")}">
+        ${String(index + 1).padStart(2, "0")}
+      </div>
 
-      [
-        {
-          label: "Title",
-          name: "title",
-          value:
-            item?.title,
-        },
+      <div>
+        <b>${esc(item.title)}</b>
+        <small>${esc(item.meta || item.description || "")}</small>
+      </div>
 
-        {
-          label:
-            "Description / platform",
-          name: "meta",
-          value:
-            item?.meta,
-        },
+      <span class="status">
+        ${esc(item.status || "PRIVATE")}
+      </span>
 
-        {
-          label:
-            "Visibility",
-          name: "status",
-          type: "select",
-          value:
-            item?.status ||
-            "PUBLIC",
-          options: [
-            "PUBLIC",
-            "DRAFT",
-            "HIDDEN",
-          ],
-        },
-      ],
+      <div class="item-actions">
+        <button type="button" class="item-edit">Edit</button>
+        <button type="button" class="item-delete">Delete</button>
+      </div>
+    </article>
+  `).join("");
 
-      (data) => {
-        if (item) {
-          Object.assign(
-            item,
-            data
-          );
-        } else {
-          state.portfolio.unshift(
-            {
-              id: Date.now(),
-              tone: "red",
-              ...data,
-            }
-          );
+  $$(".item-edit", root).forEach((button) => {
+    button.onclick = () => {
+      const id = button.closest("article").dataset.id;
+      editPortfolio(id);
+    };
+  });
+
+  $$(".item-delete", root).forEach((button) => {
+    button.onclick = async () => {
+      const id = button.closest("article").dataset.id;
+
+      if (!confirm("Delete this portfolio item?")) {
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `${PORTFOLIO_API}/${encodeURIComponent(id)}`,
+          { method: "DELETE" }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || "Failed to delete item");
         }
 
-        save();
+        state.portfolio = state.portfolio.filter(
+          (item) => getPortfolioId(item) !== id
+        );
 
+        // Refresh frontend state and UI
+        save();
         renderPortfolio();
 
-        toast(
-          "Portfolio saved"
-        );
+        toast("Portfolio item deleted");
+      } catch (error) {
+        console.error("Portfolio delete error:", error);
+        toast(error.message || "Failed to delete portfolio item");
       }
-    );
+    };
+  });
+}
+
+/* =========================================================
+   ADD / EDIT PORTFOLIO
+========================================================= */
+
+function editPortfolio(id) {
+  const item = id
+    ? state.portfolio.find(
+        (value) => getPortfolioId(value) === String(id)
+      )
+    : null;
+
+  if (id && !item) {
+    toast("Portfolio item not found");
+    return;
   }
+
+  modal(
+    item ? "Edit portfolio item" : "Add portfolio item",
+    [
+      {
+        label: "Title",
+        name: "title",
+        value: item?.title || ""
+      },
+      {
+        label: "Description / platform",
+        name: "meta",
+        value: item?.description || item?.meta || ""
+      },
+      {
+        label: "Visibility",
+        name: "status",
+        type: "select",
+        value: item?.visibility || "private",
+        options: ["public", "private"]
+      }
+    ],
+    async (data) => {
+      const title = (data.title || "").trim();
+      const description = (data.meta || "").trim();
+      const visibility = (data.status || "private").toLowerCase();
+
+      if (!title || !description) {
+        toast("Title and description are required");
+        return;
+      }
+
+      try {
+        const url = item
+          ? `${PORTFOLIO_API}/${encodeURIComponent(getPortfolioId(item))}`
+          : `${PORTFOLIO_API}/create`;
+
+        const response = await fetch(url, {
+          method: item ? "PUT" : "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            title,
+            description,
+            visibility
+          })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || "Failed to save portfolio");
+        }
+
+        // Reload the actual database data
+        await loadPortfolio();
+
+        toast(item ? "Portfolio updated" : "Portfolio created");
+      } catch (error) {
+        console.error("Portfolio save error:", error);
+        toast(error.message || "Failed to save portfolio");
+      }
+    }
+  );
+}
+
 
   /* =========================================================
      SERVICES
