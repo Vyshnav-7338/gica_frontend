@@ -1001,115 +1001,383 @@
           </div>
         </section>
 
-        <section
-          class="panel-view"
-          id="panel-events"
-          data-title="Events"
-          data-eyebrow="VIEW, REGISTER & MANAGE EVENTS"
-        >
-          <div class="panel-page-head">
-            <div>
-              <span>GICA EVENTS</span>
-              <h2>Creator events & programs</h2>
-              <p>
-                Browse upcoming events, register and manage your confirmed
-                registrations.
-              </p>
-            </div>
-            <a class="panel-secondary event-directory-link" href="events.html"
-              >Public events page ↗</a
-            >
-          </div>
-          <div class="panel-event-tabs">
-            <button class="active" data-event-tab="upcoming">
-              Upcoming events</button
-            ><button data-event-tab="registered">
-              My registered events <b id="event-tab-count">0</b>
+       
+<section
+  class="panel-view"
+  id="panel-events"
+  data-title="Events"
+  data-eyebrow="VIEW, REGISTER & MANAGE EVENTS"
+>
+
+  <!-- EVENTS HEADER -->
+  <div class="panel-page-head">
+
+    <div>
+      <span>GICA EVENTS</span>
+      <h2>Creator events & programs</h2>
+      <p>
+        Browse upcoming events, register and manage your confirmed
+        registrations.
+      </p>
+    </div>
+
+    <div class="event-header-actions">
+
+      <a class="panel-secondary event-directory-link" href="events.html">
+        Public events page ↗
+      </a>
+
+      <button
+        type="button"
+        class="panel-primary"
+        id="add-new-event-btn"
+      >
+        + Add New Event
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- EVENT TABS -->
+  <div class="panel-event-tabs">
+
+    <button class="active" data-event-tab="upcoming">
+      Upcoming events
+    </button>
+
+    <button data-event-tab="registered">
+      My registered events <b id="event-tab-count">0</b>
+    </button>
+
+  </div>
+
+  <!-- UPCOMING EVENTS -->
+  <div
+    class="panel-event-view active"
+    id="panel-events-upcoming"
+  >
+
+    <div class="panel-events-grid">
+
+      <article data-event-id="GICA-EVT-2026-001">
+
+        <div class="panel-event-date red">
+          <strong>18</strong>
+          <span>OCT<br>2026</span>
+        </div>
+
+        <div class="panel-event-copy">
+
+          <span>FLAGSHIP CONFERENCE</span>
+
+          <h3>GICA Creator Economy Summit 2026</h3>
+
+          <p>Dubai, UAE · 09:00–18:00 GST</p>
+
+          <div>
+            <a href="event-details.html">View full event</a>
+
+            <button class="panel-primary event-quick-register">
+              Register now
             </button>
           </div>
-          <div class="panel-event-view active" id="panel-events-upcoming">
-            <div class="panel-events-grid">
-              <article data-event-id="GICA-EVT-2026-001">
-                <div class="panel-event-date red">
-                  <strong>18</strong><span>OCT<br />2026</span>
-                </div>
-                <div class="panel-event-copy">
-                  <span>FLAGSHIP CONFERENCE</span>
-                  <h3>GICA Creator Economy Summit 2026</h3>
-                  <p>Dubai, UAE · 09:00–18:00 GST</p>
-                  <div>
-                    <a href="event-details.html">View full event</a
-                    ><button class="panel-primary event-quick-register">
-                      Register now
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article data-event-id="GICA-EVT-2026-002">
-                <div class="panel-event-date dark">
-                  <strong>05</strong><span>NOV<br />2026</span>
-                </div>
-                <div class="panel-event-copy">
-                  <span>CREATOR WORKSHOP</span>
-                  <h3>Build a Brand-Ready Media Kit</h3>
-                  <p>Mumbai, India · 14:00–17:00 IST</p>
-                  <div>
-                    <a href="event-details.html">View event</a
-                    ><button class="panel-primary event-quick-register">
-                      Register now
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article data-event-id="GICA-EVT-2026-003">
-                <div class="panel-event-date gold">
-                  <strong>22</strong><span>NOV<br />2026</span>
-                </div>
-                <div class="panel-event-copy">
-                  <span>ONLINE MASTERCLASS</span>
-                  <h3>Creator Finance Essentials</h3>
-                  <p>Global online · 18:30–20:00 IST</p>
-                  <div>
-                    <a href="event-details.html">View event</a
-                    ><button class="panel-primary event-quick-register">
-                      Register now
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article data-event-id="GICA-EVT-2026-004">
-                <div class="panel-event-date connect">
-                  <strong>12</strong><span>DEC<br />2026</span>
-                </div>
-                <div class="panel-event-copy">
-                  <span>CREATOR NETWORKING</span>
-                  <h3>GICA Creator Connect — Kochi</h3>
-                  <p>Kochi, India · 16:00–19:00 IST</p>
-                  <div>
-                    <a href="event-details.html?event=connect">View event</a
-                    ><button class="panel-primary event-quick-register">
-                      Register now
-                    </button>
-                  </div>
-                </div>
-              </article>
-            </div>
+
+        </div>
+
+      </article>
+
+      <article data-event-id="GICA-EVT-2026-002">
+
+        <div class="panel-event-date dark">
+          <strong>05</strong>
+          <span>NOV<br>2026</span>
+        </div>
+
+        <div class="panel-event-copy">
+
+          <span>CREATOR WORKSHOP</span>
+
+          <h3>Build a Brand-Ready Media Kit</h3>
+
+          <p>Mumbai, India · 14:00–17:00 IST</p>
+
+          <div>
+            <a href="event-details.html">View event</a>
+
+            <button class="panel-primary event-quick-register">
+              Register now
+            </button>
           </div>
-          <div class="panel-event-view" id="panel-events-registered">
-            <div
-              class="registered-events-list"
-              id="registered-events-list"
-            ></div>
-            <div class="registered-empty" id="registered-events-empty">
-              <span>◆</span>
-              <h3>No registered events yet.</h3>
-              <p>Choose an upcoming event and register to see it here.</p>
-              <button class="panel-primary" data-show-upcoming>
-                Browse events
-              </button>
-            </div>
+
+        </div>
+
+      </article>
+
+      <article data-event-id="GICA-EVT-2026-003">
+
+        <div class="panel-event-date gold">
+          <strong>22</strong>
+          <span>NOV<br>2026</span>
+        </div>
+
+        <div class="panel-event-copy">
+
+          <span>ONLINE MASTERCLASS</span>
+
+          <h3>Creator Finance Essentials</h3>
+
+          <p>Global online · 18:30–20:00 IST</p>
+
+          <div>
+            <a href="event-details.html">View event</a>
+
+            <button class="panel-primary event-quick-register">
+              Register now
+            </button>
           </div>
-        </section>
+
+        </div>
+
+      </article>
+
+      <article data-event-id="GICA-EVT-2026-004">
+
+        <div class="panel-event-date connect">
+          <strong>12</strong>
+          <span>DEC<br>2026</span>
+        </div>
+
+        <div class="panel-event-copy">
+
+          <span>CREATOR NETWORKING</span>
+
+          <h3>GICA Creator Connect — Kochi</h3>
+
+          <p>Kochi, India · 16:00–19:00 IST</p>
+
+          <div>
+            <a href="event-details.html?event=connect">
+              View event
+            </a>
+
+            <button class="panel-primary event-quick-register">
+              Register now
+            </button>
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+  <!-- REGISTERED EVENTS -->
+  <div
+    class="panel-event-view"
+    id="panel-events-registered"
+  >
+
+    <div
+      class="registered-events-list"
+      id="registered-events-list"
+    ></div>
+
+    <div
+      class="registered-empty"
+      id="registered-events-empty"
+    >
+
+      <span>◆</span>
+
+      <h3>No registered events yet.</h3>
+
+      <p>
+        Choose an upcoming event and register to see it here.
+      </p>
+
+      <button class="panel-primary" data-show-upcoming>
+        Browse events
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ADD NEW EVENT MODAL -->
+
+<div class="event-modal-overlay" id="event-modal">
+
+  <div class="event-modal">
+
+    <div class="event-modal-header">
+
+      <div>
+        <span>GICA EVENTS MANAGEMENT</span>
+        <h2>Add New Event</h2>
+        <p>Enter the details to publish a new creator event.</p>
+      </div>
+
+      <button
+        type="button"
+        id="close-event-modal"
+        class="event-close-btn"
+      >
+        &times;
+      </button>
+
+    </div>
+
+    <form id="add-event-form">
+
+      <div class="event-form-grid">
+
+        <div class="event-form-group full">
+          <label>Event Title *</label>
+          <input
+            type="text"
+            id="event-title"
+            placeholder="Enter event title"
+            required
+          >
+        </div>
+
+        <div class="event-form-group">
+          <label>Event Category *</label>
+
+          <select id="event-category" required>
+            <option value="">Select category</option>
+            <option value="Flagship Conference">Flagship Conference</option>
+            <option value="Creator Workshop">Creator Workshop</option>
+            <option value="Online Masterclass">Online Masterclass</option>
+            <option value="Creator Networking">Creator Networking</option>
+            <option value="Webinar">Webinar</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="event-form-group">
+          <label>Event Type *</label>
+
+          <select id="event-type" required>
+            <option value="offline">Offline</option>
+            <option value="online">Online</option>
+          </select>
+        </div>
+
+        <div class="event-form-group full">
+          <label>Description *</label>
+
+          <textarea
+            id="event-description"
+            rows="3"
+            placeholder="Enter event description"
+            required
+          ></textarea>
+        </div>
+
+        <div class="event-form-group">
+          <label>Event Date *</label>
+          <input type="date" id="event-date" required>
+        </div>
+
+        <div class="event-form-group">
+          <label>Timezone</label>
+
+          <select id="event-timezone">
+            <option value="IST">IST</option>
+            <option value="GST">GST</option>
+            <option value="UTC">UTC</option>
+          </select>
+        </div>
+
+        <div class="event-form-group">
+          <label>Start Time *</label>
+          <input type="time" id="event-start-time" required>
+        </div>
+
+        <div class="event-form-group">
+          <label>End Time *</label>
+          <input type="time" id="event-end-time" required>
+        </div>
+
+        <div class="event-form-group full">
+          <label>Location *</label>
+
+          <input
+            type="text"
+            id="event-location"
+            placeholder="Dubai, UAE / Global Online"
+            required
+          >
+        </div>
+
+        <div class="event-form-group full">
+          <label>Event Image URL</label>
+
+          <input
+            type="url"
+            id="event-image"
+            placeholder="Enter image URL"
+          >
+        </div>
+
+        <div class="event-form-group full">
+          <label>Registration URL</label>
+
+          <input
+            type="url"
+            id="event-registration-url"
+            placeholder="Enter registration link"
+          >
+        </div>
+
+        <div class="event-form-group full">
+          <label>Event Status</label>
+
+          <select id="event-status">
+            <option value="published">Published</option>
+            <option value="draft">Draft</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="event-form-actions">
+
+        <button
+          type="button"
+          class="panel-secondary"
+          id="cancel-event-btn"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          class="panel-primary"
+          id="save-event-btn"
+        >
+          Save Event
+        </button>
+
+      </div>
+
+      <p id="event-form-message"></p>
+
+    </form>
+
+  </div>
+
+</div>
+
+<!-- END EVENT MODAL -->
+
 
         <section
           class="panel-view"

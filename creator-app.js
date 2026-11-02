@@ -1156,7 +1156,7 @@
    PORTFOLIO API
 ========================================================= */
 
-const PORTFOLIO_API = "http://localhost:7010/api/portfolio";
+const PORTFOLIO_API = "http://192.168.31.42:7010/api/portfolio";
 
 function getPortfolioId(item) {
   return String(item._id || item.id);
@@ -1380,247 +1380,278 @@ function editPortfolio(id) {
      SERVICES
   ========================================================= */
 
-  function renderServices() {
-    const root =
-      $(".service-manager");
+// ========================================
+// SERVICES API
+// ========================================
 
-    if (!root) {
-      return;
+const SERVICES_API = "http://localhost:7010/api/services";
+
+// Load services from MongoDB
+async function loadServices() {
+  try {
+    const response = await fetch(SERVICES_API);
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(result.message || "Failed to load services");
     }
 
-    if (
-      !state.services.length
-    ) {
-      root.innerHTML =
-        "<p>No services added yet.</p>";
+    // Convert MongoDB data into your existing frontend format
+    state.services = result.data.map((item) => ({
+      id: String(item._id),
+      title: item.serviceName,
+      channel: item.channel,
+      description: item.description,
+      price: item.startingPrice,
+      delivery: item.deliveryTime,
+      availability: item.availability || "Available"
+    }));
 
-      return;
-    }
+    renderServices();
 
-    root.innerHTML =
-      state.services
-        .map(
-          (item) => `
-            <article
-              data-id="${item.id}"
-            >
+  } catch (error) {
+    console.error("Services loading error:", error);
+    toast("Failed to load services");
+  }
+}
 
-              <span>
-                ${esc(
-                  item.channel
-                )}
-              </span>
 
-              <h3>
-                ${esc(
-                  item.title
-                )}
-              </h3>
+// ========================================
+// RENDER SERVICES
+// ========================================
 
-              <p>
-                ${esc(
-                  item.description
-                )}
-              </p>
+function renderServices() {
+  const root = $(".service-manager");
 
-              <div>
-                <b>
-                  ${esc(
-                    item.price
-                  )}
-                </b>
-
-                <small>
-                  ${esc(
-                    item.delivery
-                  )}
-                </small>
-              </div>
-
-              <i>
-                ${esc(
-                  item.availability
-                )}
-              </i>
-
-              <div
-                class="service-actions"
-              >
-                <button
-                  class="service-edit"
-                >
-                  Edit
-                </button>
-
-                <button
-                  class="service-delete"
-                >
-                  Delete
-                </button>
-              </div>
-
-            </article>
-          `
-        )
-        .join("");
-
-    $$(
-      ".service-edit",
-      root
-    ).forEach(
-      (button) => {
-        button.onclick =
-          () => {
-            editService(
-              Number(
-                button.closest(
-                  "article"
-                ).dataset.id
-              )
-            );
-          };
-      }
-    );
-
-    $$(
-      ".service-delete",
-      root
-    ).forEach(
-      (button) => {
-        button.onclick =
-          () => {
-            const id =
-              Number(
-                button.closest(
-                  "article"
-                ).dataset.id
-              );
-
-            if (
-              !confirm(
-                "Delete this service?"
-              )
-            ) {
-              return;
-            }
-
-            state.services =
-              state.services.filter(
-                (item) =>
-                  item.id !== id
-              );
-
-            save();
-
-            renderServices();
-
-            toast(
-              "Service deleted"
-            );
-          };
-      }
-    );
+  if (!root) {
+    return;
   }
 
-  function editService(
-    id
-  ) {
-    const item =
-      state.services.find(
-        (value) =>
-          value.id === id
-      );
+  if (!state.services.length) {
+    root.innerHTML = "<p>No services added yet.</p>";
+    return;
+  }
 
-    modal(
-      item
-        ? "Edit creator service"
-        : "Add creator service",
+  root.innerHTML = state.services.map((item) => `
+    <article data-id="${esc(String(item.id))}">
 
-      [
-        {
-          label:
-            "Service name",
-          name: "title",
-          value:
-            item?.title,
-        },
+      <span>
+        ${esc(item.channel)}
+      </span>
 
-        {
-          label: "Channel",
-          name: "channel",
-          value:
-            item?.channel,
-        },
+      <h3>
+        ${esc(item.title)}
+      </h3>
 
-        {
-          label:
-            "Description",
-          name:
-            "description",
-          type: "textarea",
-          value:
-            item?.description,
-        },
+      <p>
+        ${esc(item.description)}
+      </p>
 
-        {
-          label:
-            "Starting price",
-          name: "price",
-          value:
-            item?.price,
-        },
+      <div>
+        <b>
+          ${esc(String(item.price))}
+        </b>
 
-        {
-          label:
-            "Delivery time",
-          name:
-            "delivery",
-          value:
-            item?.delivery,
-        },
+        <small>
+          ${esc(item.delivery)}
+        </small>
+      </div>
 
-        {
-          label:
-            "Availability",
-          name:
-            "availability",
-          type: "select",
-          value:
-            item?.availability ||
-            "Available",
-          options: [
-            "Available",
-            "Limited",
-            "Unavailable",
-          ],
-        },
-      ],
+      <i>
+        ${esc(item.availability)}
+      </i>
 
-      (data) => {
-        if (item) {
-          Object.assign(
-            item,
-            data
-          );
-        } else {
-          state.services.push(
-            {
-              id: Date.now(),
-              ...data,
-            }
+      <div class="service-actions">
+
+        <button class="service-edit">
+          Edit
+        </button>
+
+        <button class="service-delete">
+          Delete
+        </button>
+
+      </div>
+
+    </article>
+  `).join("");
+
+
+  // EDIT BUTTON
+  $$(".service-edit", root).forEach((button) => {
+    button.onclick = () => {
+      const id = button.closest("article").dataset.id;
+
+      editService(id);
+    };
+  });
+
+
+  // DELETE BUTTON
+  $$(".service-delete", root).forEach((button) => {
+    button.onclick = async () => {
+
+      const id = button.closest("article").dataset.id;
+
+      if (!confirm("Delete this service?")) {
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `${SERVICES_API}/${encodeURIComponent(id)}`,
+          {
+            method: "DELETE"
+          }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || "Delete failed");
+        }
+
+        // Reload services from MongoDB
+        await loadServices();
+
+        toast("Service deleted");
+
+      } catch (error) {
+        console.error("Service delete error:", error);
+        toast("Failed to delete service");
+      }
+    };
+  });
+}
+
+
+// ========================================
+// ADD / EDIT SERVICE
+// ========================================
+
+function editService(id) {
+
+  const item = id
+    ? state.services.find(
+        (value) => String(value.id) === String(id)
+      )
+    : null;
+
+
+  modal(
+    item
+      ? "Edit creator service"
+      : "Add creator service",
+
+    [
+      {
+        label: "Service name",
+        name: "title",
+        value: item?.title || ""
+      },
+
+      {
+        label: "Channel",
+        name: "channel",
+        value: item?.channel || ""
+      },
+
+      {
+        label: "Description",
+        name: "description",
+        type: "textarea",
+        value: item?.description || ""
+      },
+
+      {
+        label: "Starting price",
+        name: "price",
+        value: item?.price ?? ""
+      },
+
+      {
+        label: "Delivery time",
+        name: "delivery",
+        value: item?.delivery || ""
+      },
+
+      {
+        label: "Availability",
+        name: "availability",
+        type: "select",
+        value: item?.availability || "Available",
+        options: [
+          "Available",
+          "Limited",
+          "Unavailable"
+        ]
+      }
+    ],
+
+
+    // SAVE TO MONGODB
+    async (data) => {
+
+      try {
+
+        // Convert frontend field names to backend field names
+        const serviceData = {
+          serviceName: data.title,
+          channel: data.channel,
+          description: data.description,
+          startingPrice: Number(data.price),
+          deliveryTime: data.delivery,
+          availability: data.availability
+        };
+
+
+        // ADD NEW SERVICE
+        // OR UPDATE EXISTING SERVICE
+        const response = await fetch(
+          item
+            ? `${SERVICES_API}/${encodeURIComponent(item.id)}`
+            : SERVICES_API,
+          {
+            method: item ? "PUT" : "POST",
+
+            headers: {
+              "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(serviceData)
+          }
+        );
+
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(
+            result.message || "Failed to save service"
           );
         }
 
-        save();
 
-        renderServices();
+        // Get latest data from MongoDB
+        await loadServices();
 
         toast(
-          "Service saved"
+          item
+            ? "Service updated successfully"
+            : "Service added successfully"
         );
+
+      } catch (error) {
+
+        console.error("Service save error:", error);
+
+        toast(error.message || "Failed to save service");
       }
-    );
-  }
+
+    }
+  );
+}
+
 
   /* =========================================================
      INQUIRIES
@@ -1927,210 +1958,338 @@ function editPortfolio(id) {
      COLLABORATIONS
   ========================================================= */
 
-  function renderCollaborations() {
-    const root =
-      $(
-        "#panel-collaborations .collab-board"
-      );
+// =====================================
+// COLLABORATION API
+// =====================================
 
-    if (!root) {
-      return;
+const COLLABORATION_API =
+  "http://192.168.31.42:7010/api/collaborations";
+
+
+// =====================================
+// LOAD COLLABORATIONS FROM DATABASE
+// =====================================
+
+async function loadCollaborations() {
+  try {
+    const response = await fetch(
+      COLLABORATION_API
+    );
+
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(
+        result.message || "Failed to load collaborations"
+      );
     }
 
-    const statuses = [
-      "NEGOTIATION",
-      "IN PRODUCTION",
-      "CLIENT APPROVAL",
-      "PAYMENT",
-      "COMPLETED",
-    ];
+    state.collaborations = result.data.map(
+      (item) => ({
+        ...item,
 
-    root.innerHTML =
-      statuses
-        .map(
-          (status) => {
-            const list =
-              state.collaborations.filter(
-                (item) =>
-                  item.status ===
-                  status
-              );
+        id: String(item._id),
 
-            return `
-              <div>
+        status: item.stage || "NEGOTIATION"
+      })
+    );
 
-                <h3>
-                  ${status}
-                  <b>
-                    ${list.length}
-                  </b>
-                </h3>
+    renderCollaborations();
 
-                ${list
-                  .map(
-                    (
-                      item
-                    ) => `
-                      <article
-                        data-collab-id="${esc(
-                          item.id
-                        )}"
-                      >
+  } catch (error) {
+    console.error(
+      "Collaboration loading error:",
+      error
+    );
 
-                        <span>
-                          ${esc(
-                            item.id
-                          )}
-                        </span>
-
-                        <h4>
-                          ${esc(
-                            item.title
-                          )}
-                        </h4>
-
-                        <p>
-                          ${esc(
-                            item.client
-                          )}
-                          ·
-                          ${esc(
-                            item.details
-                          )}
-                        </p>
-
-                        <small>
-                          ${esc(
-                            item.amount
-                          )}
-                        </small>
-
-                        <button
-                          class="panel-secondary"
-                        >
-                          Manage
-                        </button>
-
-                      </article>
-                    `
-                  )
-                  .join("")}
-
-              </div>
-            `;
-          }
-        )
-        .join("");
-
-    $$(
-      "button",
-      root
-    ).forEach(
-      (button) => {
-        button.onclick =
-          () => {
-            const id =
-              button.closest(
-                "article"
-              ).dataset
-                .collabId;
-
-            const item =
-              state.collaborations.find(
-                (value) =>
-                  String(
-                    value.id
-                  ) === id
-              );
-
-            editCollaboration(
-              item
-            );
-          };
-      }
+    toast(
+      "Unable to load collaborations"
     );
   }
+}
 
-  function editCollaboration(
-    item
-  ) {
-    modal(
-      item
-        ? "Manage collaboration"
-        : "Add collaboration",
 
-      [
-        {
-          label: "Title",
-          name: "title",
-          value:
-            item?.title,
-        },
+// =====================================
+// RENDER COLLABORATIONS
+// =====================================
 
-        {
-          label: "Client",
-          name: "client",
-          value:
-            item?.client,
-        },
+function renderCollaborations() {
 
-        {
-          label: "Details",
-          name: "details",
-          value:
-            item?.details,
-        },
+  const root =
+    $("#panel-collaborations .collab-board");
 
-        {
-          label: "Amount",
-          name: "amount",
-          value:
-            item?.amount,
-        },
+  if (!root) {
+    return;
+  }
 
-        {
-          label: "Stage",
-          name: "status",
-          type: "select",
-          value:
-            item?.status ||
-            "NEGOTIATION",
-          options: [
-            "NEGOTIATION",
-            "IN PRODUCTION",
-            "CLIENT APPROVAL",
-            "PAYMENT",
-            "COMPLETED",
-          ],
-        },
-      ],
+  const statuses = [
+    "NEGOTIATION",
+    "IN PRODUCTION",
+    "CLIENT APPROVAL",
+    "PAYMENT",
+    "COMPLETED",
+  ];
 
-      (data) => {
-        if (item) {
-          Object.assign(
-            item,
-            data
+  root.innerHTML =
+    statuses
+      .map((status) => {
+
+        const list =
+          state.collaborations.filter(
+            (item) =>
+              item.status === status
           );
-        } else {
-          state.collaborations.push(
-            {
-              id:
-                `COL-${Date.now()}`,
-              ...data,
-            }
-          );
+
+        return `
+          <div>
+
+            <h3>
+              ${status}
+              <b>
+                ${list.length}
+              </b>
+            </h3>
+
+            ${list
+              .map(
+                (item) => `
+                  <article
+                    data-collab-id="${esc(item.id)}"
+                  >
+
+                    <span>
+                      ${esc(item.id)}
+                    </span>
+
+                    <h4>
+                      ${esc(item.title)}
+                    </h4>
+
+                    <p>
+                      ${esc(item.client)}
+                      ·
+                      ${esc(item.details)}
+                    </p>
+
+                    <small>
+                      ${esc(item.amount)}
+                    </small>
+
+                    <button
+                      class="panel-secondary"
+                    >
+                      Manage
+                    </button>
+
+                  </article>
+                `
+              )
+              .join("")}
+
+          </div>
+        `;
+      })
+      .join("");
+
+
+  // Manage button functionality
+
+  $$("button", root).forEach(
+    (button) => {
+
+      button.onclick = () => {
+
+        const article =
+          button.closest("article");
+
+        if (!article) {
+          return;
         }
 
-        save();
+        const id =
+          article.dataset.collabId;
 
-        renderCollaborations();
+        const item =
+          state.collaborations.find(
+            (value) =>
+              String(value.id) === id
+          );
+
+        if (item) {
+          editCollaboration(item);
+        }
+
+      };
+
+    }
+  );
+
+}
+
+
+// =====================================
+// ADD / EDIT COLLABORATION
+// =====================================
+
+function editCollaboration(item) {
+
+  modal(
+    item
+      ? "Manage collaboration"
+      : "Add collaboration",
+
+    [
+      {
+        label: "Title",
+        name: "title",
+        value: item?.title,
+      },
+
+      {
+        label: "Client",
+        name: "client",
+        value: item?.client,
+      },
+
+      {
+        label: "Details",
+        name: "details",
+        value: item?.details,
+      },
+
+      {
+        label: "Amount",
+        name: "amount",
+        value: item?.amount,
+      },
+
+      {
+        label: "Stage",
+        name: "status",
+        type: "select",
+        value:
+          item?.status || "NEGOTIATION",
+
+        options: [
+          "NEGOTIATION",
+          "IN PRODUCTION",
+          "CLIENT APPROVAL",
+          "PAYMENT",
+          "COMPLETED",
+        ],
+      },
+    ],
+
+    async (data) => {
+
+      try {
+
+        // Convert frontend status to backend stage
+
+        const collaborationData = {
+          title: data.title,
+          client: data.client,
+          details: data.details,
+          amount: String(data.amount),
+          stage: data.status,
+        };
+
+
+        let response;
+
+
+        // =================================
+        // UPDATE EXISTING COLLABORATION
+        // =================================
+
+        if (item) {
+
+          response = await fetch(
+            `${COLLABORATION_API}/${item.id}`,
+            {
+              method: "PUT",
+
+              headers: {
+                "Content-Type": "application/json",
+              },
+
+              body: JSON.stringify(
+                collaborationData
+              ),
+            }
+          );
+
+        }
+
+
+        // =================================
+        // CREATE NEW COLLABORATION
+        // =================================
+
+        else {
+
+          response = await fetch(
+            COLLABORATION_API,
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type": "application/json",
+              },
+
+              body: JSON.stringify(
+                collaborationData
+              ),
+            }
+          );
+
+        }
+
+
+        const result =
+          await response.json();
+
+
+        if (!response.ok || !result.success) {
+
+          throw new Error(
+            result.message ||
+            "Failed to save collaboration"
+          );
+
+        }
+
+
+        // Reload latest database records
+
+        await loadCollaborations();
 
         toast(
-          "Collaboration saved"
+          item
+            ? "Collaboration updated successfully"
+            : "Collaboration added successfully"
         );
+
+
+      } catch (error) {
+
+        console.error(
+          "Collaboration save error:",
+          error
+        );
+
+        toast(
+          error.message ||
+          "Unable to save collaboration"
+        );
+
       }
-    );
-  }
+
+    }
+  );
+
+}
+
 
   /* =========================================================
      NETWORK
@@ -2346,6 +2505,7 @@ function editPortfolio(id) {
   /* =========================================================
      EVENTS LOCAL
   ========================================================= */
+  
 
   function renderRegisteredEvents() {
     const root =

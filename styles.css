@@ -505,6 +505,156 @@ h3,
   color: var(--lime);
   margin: 0 28px;
 }
+
+
+/* EVENT HEADER BUTTONS */
+
+.event-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* EVENT MODAL */
+
+.event-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.event-modal-overlay.active {
+  display: flex;
+}
+
+.event-modal {
+  background: #fff;
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.event-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.event-modal-header span {
+  font-size: 11px;
+  color: #e31b23;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.event-modal-header h2 {
+  font-size: 25px;
+  margin: 8px 0;
+  color: #222;
+}
+
+.event-modal-header p {
+  color: #777;
+  font-size: 13px;
+}
+
+.event-close-btn {
+  border: none;
+  background: #f3f3f3;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.event-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.event-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.event-form-group.full {
+  grid-column: 1 / -1;
+}
+
+.event-form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+.event-form-group input,
+.event-form-group select,
+.event-form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  background: #fff;
+}
+
+.event-form-group input:focus,
+.event-form-group select:focus,
+.event-form-group textarea:focus {
+  border-color: #e31b23;
+}
+
+.event-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.event-form-actions button {
+  cursor: pointer;
+}
+
+#event-form-message {
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+  .event-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-form-group.full {
+    grid-column: auto;
+  }
+
+  .event-modal {
+    padding: 18px;
+  }
+
+  .event-header-actions {
+    width: 100%;
+  }
+}
+
 @keyframes ticker {
   to {
     transform: translateX(-50%);
