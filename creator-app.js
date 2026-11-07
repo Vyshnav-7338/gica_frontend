@@ -89,6 +89,231 @@
     eventRegistrations: [],
   };
 
+  // ==========================================
+// EVENTS API
+// ==========================================
+
+const EVENTS_API = "http://localhost:7010/api/events";
+
+const eventModal = document.getElementById("event-modal");
+const createEventForm = document.getElementById("create-event-form");
+
+const addEventBtn = document.getElementById("add-new-event-btn");
+const closeEventBtn = document.getElementById("close-event-modal");
+const cancelEventBtn = document.getElementById("cancel-event-btn");
+
+const submitEventBtn = document.getElementById("submit-event-btn");
+const eventMessage = document.getElementById("event-form-message");
+
+
+// OPEN MODAL
+addEventBtn?.addEventListener("click", () => {
+    eventModal.classList.add("active");
+});
+
+
+// CLOSE MODAL
+function closeEventModal() {
+    eventModal.classList.remove("active");
+}
+
+closeEventBtn?.addEventListener("click", closeEventModal);
+cancelEventBtn?.addEventListener("click", closeEventModal);
+
+
+// ==========================================
+// SUBMIT NEW EVENT
+// ==========================================
+
+createEventForm?.addEventListener("submit", async function (e) {
+
+    e.preventDefault();
+
+    const formData = new FormData(createEventForm);
+
+    const eventData = Object.fromEntries(formData.entries());
+
+    submitEventBtn.disabled = true;
+    submitEventBtn.textContent = "Saving...";
+
+    eventMessage.textContent = "";
+
+    try {
+
+        const response = await fetch(`${EVENTS_API}/create`, {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(eventData)
+
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.message || "Unable to create event");
+        }
+
+        alert("Event created successfully!");
+
+        createEventForm.reset();
+
+        closeEventModal();
+
+        // Reload events from MongoDB
+        await loadEvents();
+
+    } catch (error) {
+
+        console.error("Event creation error:", error);
+
+        eventMessage.textContent = error.message;
+        eventMessage.style.color = "red";
+
+    } finally {
+
+        submitEventBtn.disabled = false;
+        submitEventBtn.textContent = "Submit Event";
+
+    }
+
+});
+
+
+
+
+
+// ==========================================
+// LOAD EVENTS FROM DATABASE
+// ==========================================
+
+async function loadEvents() {
+
+    const grid = document.getElementById("dynamic-events-grid");
+
+    if (!grid) return;
+
+    try {
+
+        const response = await fetch(EVENTS_API);
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.message || "Failed to load events");
+        }
+
+        const events = Array.isArray(result)
+            ? result
+            : result.events || result.data || [];
+
+        renderDynamicEvents(events);
+
+    } catch (error) {
+
+        console.error("Events loading error:", error);
+
+        grid.innerHTML = `
+            <p>Unable to load events. Please try again.</p>
+        `;
+
+    }
+
+}
+
+
+// ==========================================
+// RENDER DATABASE EVENTS
+// ==========================================
+
+function renderDynamicEvents(events) {
+
+    const grid = document.getElementById("dynamic-events-grid");
+
+    if (!grid) return;
+
+    if (!events.length) {
+
+        grid.innerHTML = `
+            <div class="registered-empty">
+                <h3>No events available</h3>
+                <p>New events will appear here.</p>
+            </div>
+        `;
+
+        return;
+    }
+
+    grid.innerHTML = events.map(event => {
+
+        const date = new Date(event.date);
+
+        const day = date.getDate();
+
+        const month = date.toLocaleString("en-US", {
+            month: "short"
+        }).toUpperCase();
+
+        const year = date.getFullYear();
+
+        const escapeHtml = value =>
+            String(value ?? "").replace(/[&<>"']/g, char => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;"
+            })[char]);
+
+        const eventId = event._id || event.id;
+
+        return `
+            <article data-event-id="${escapeHtml(eventId)}">
+
+                <div class="panel-event-date red">
+                    <strong>${day}</strong>
+                    <span>${month}<br>${year}</span>
+                </div>
+
+                <div class="panel-event-copy">
+
+                    <span>${escapeHtml(event.category)}</span>
+
+                    <h3>${escapeHtml(event.title)}</h3>
+
+                    <p>
+                        ${escapeHtml(event.location)}
+                        · ${escapeHtml(event.startTime)}
+                        – ${escapeHtml(event.endTime)}
+                        ${escapeHtml(event.timezone || "IST")}
+                    </p>
+
+                    <div>
+                        <a href="event-details.html?event=${encodeURIComponent(eventId)}">
+                            View event
+                        </a>
+
+                        <button
+                            class="panel-primary event-quick-register"
+                            data-event-id="${escapeHtml(eventId)}"
+                        >
+                            Register now
+                        </button>
+                    </div>
+
+                </div>
+
+            </article>
+        `;
+
+    }).join("");
+
+}
+
   /* =========================================================
      LOAD LOCAL DATA
   ========================================================= */
@@ -3086,6 +3311,8 @@ function editCollaboration(item) {
 
   function start() {
     applyIdentity();
+
+    loadEvents();
 
     renderProfile();
 
